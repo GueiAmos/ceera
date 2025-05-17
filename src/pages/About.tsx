@@ -1,153 +1,175 @@
-
 import HeroSection from '@/components/HeroSection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Target, Award, Users, UserPlus, Clock, Heart, FileText, Handshake } from 'lucide-react';
-
 const About = () => {
-  const values = [
-    {
-      icon: <Heart className="h-8 w-8 text-ceera-orange" />,
-      title: "Solidarité",
-      description: "Nous nous entraidons et soutenons mutuellement dans toutes les circonstances."
-    },
-    {
-      icon: <Award className="h-8 w-8 text-ceera-orange" />,
-      title: "Excellence",
-      description: "Nous visons l'excellence dans toutes nos activités et encourageons nos membres à se surpasser."
-    },
-    {
-      icon: <Users className="h-8 w-8 text-ceera-orange" />,
-      title: "Inclusion",
-      description: "Nous accueillons et valorisons tous les ressortissants d'Agnibilékrou sans discrimination."
-    },
-    {
-      icon: <Target className="h-8 w-8 text-ceera-orange" />,
-      title: "Engagement",
-      description: "Nous nous engageons activement pour le développement de notre communauté et de notre région."
-    }
-  ];
-
-  const executiveStaff = [
-    {
-      role: "Présidence",
-      members: [
-        { position: "Président", name: "OUATTARA DRISSA" },
-        { position: "1er Vice-Président", name: "Ouattara Abran Rose" },
-        { position: "2ème Vice-Président", name: "Ouattara Lamine" }
-      ]
-    },
-    {
-      role: "Secrétariat Général",
-      members: [
-        { position: "Secrétaire Général", name: "Kouamé Kouadio Célestin" },
-        { position: "Adjoint 1", name: "Akoua Awa" },
-        { position: "Adjoint 2", name: "ATTA Yao Vital" }
-      ]
-    },
-    {
-      role: "Secrétariat à l'Organisation",
-      members: [
-        { position: "Secrétaire à l'Organisation", name: "Kamagaté Lamine" },
-        { position: "Adjoint 1", name: "DIALLO ABOUBACAR" },
-        { position: "Adjoint 2", name: "AIGNON Philipe" }
-      ]
-    },
-    {
-      role: "Secrétariat à la Communication",
-      members: [
-        { position: "Secrétaire à la Communication", name: "Kumassi Koffi Kié Jean-Marc" },
-        { position: "Adjoint 1", name: "Trinité Samson" },
-        { position: "Adjoint 2", name: "Kouadio Donatien" }
-      ]
-    },
-    {
-      role: "Secrétariat aux Finances",
-      members: [
-        { position: "Secrétaire aux Finances", name: "Palé Hibatoullah" },
-        { position: "Adjoint 1", name: "Ouattara Mariam" },
-        { position: "Adjoint 2", name: "Kamagaté Sania" }
-      ]
-    },
-    {
-      role: "Secrétariat à la Culture et au Sport",
-      members: [
-        { position: "Secrétaire à la Culture et au Sport", name: "Diallo Siriki Junior" },
-        { position: "Adjoint 1", name: "Ouattara Masara" },
-        { position: "Adjoint 2", name: "Ouattara Yaya" }
-      ]
-    },
-    {
-      role: "Secrétariat aux Affaires Sociales",
-      members: [
-        { position: "Secrétaire aux Affaires Sociales", name: "Ouattara Ibrahim" },
-        { position: "Adjoint 1", name: "Fofana Salimata" },
-        { position: "Adjoint 2", name: "Diallo Aïcha" }
-      ]
-    },
-    {
-      role: "Secrétariat aux Affaires Académiques",
-      members: [
-        { position: "Secrétaire aux Affaires Académiques", name: "Geï Amos" },
-        { position: "Adjoint 1", name: "Pini Léontine" },
-        { position: "Adjoint 2", name: "Traoré Ramdé Kadidjatou" }
-      ]
-    },
-    {
-      role: "Secrétariat à l'Environnement et au Développement Durable",
-      members: [
-        { position: "Secrétaire à l'Environnement", name: "Ouattara Brou Prince Blanchard" },
-        { position: "Adjoint 1", name: "Ouattara Bakary" },
-        { position: "Adjoint 2", name: "Blendou Ange Mauricette" }
-      ]
-    },
-    {
-      role: "Secrétariat à l'Insertion Professionnelle et à l'Entrepreneuriat",
-      members: [
-        { position: "Secrétaire à l'Insertion Professionnelle", name: "Kambou Ollo" },
-        { position: "Adjoint 1", name: "Ouattara Amie" },
-        { position: "Adjoint 2", name: "Boko Ama Valentine" }
-      ]
-    },
-    {
-      role: "Commissariat aux Comptes",
-      members: [
-        { position: "Commissaire aux Comptes", name: "YAO KOUADIO HENRI-JOEL" },
-        { position: "Adjoint 1", name: "KOUASSI KOFFI ADAMA" },
-        { position: "Adjoint 2", name: "ADOU ANOH JONAS" }
-      ]
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "Qui peut devenir membre du CEERA ?",
-      answer: "Peuvent adhérer à l'association toutes personnes volontaires, ayant le statut d'élève ou étudiant, quel que soit le lieu où cette personne sera orientée. Il faut obligatoirement être un ressortissant d'Agnibilékrou."
-    },
-    {
-      question: "Comment le CEERA est-il organisé ?",
-      answer: "Le CEERA est dirigé par un bureau exécutif élu pour un mandat de 2 ans. Il est composé d'un président, de vice-présidents, d'un secrétaire général et de plusieurs secrétaires responsables de différents domaines."
-    },
-    {
-      question: "Quels sont les avantages d'être membre du CEERA ?",
-      answer: "En plus de faire partie d'un réseau solidaire, les membres bénéficient de soutien en cas de maladie grave (cotisation exceptionnelle d'au moins 1000 FCFA), en cas de décès d'un parent (cotisation de 500 FCFA et plus), en cas de mariage (cotisation de 1000 FCFA) ou de naissance (cotisation de 500 FCFA et autres présents)."
-    },
-    {
-      question: "Où est situé le siège du CEERA ?",
-      answer: "Le siège du CEERA est situé à Abidjan. Il dispose également d'une base dans la ville de Bouaké (CEERA-BOUAKÉ) et prévoit d'établir des bases dans toutes les villes où se trouvent des universités et grandes écoles (Agnibilékrou, Daloa, Yamoussoukro, Man, Korhogo, San-Pédro...)."
-    },
-    {
-      question: "Comment adhérer au CEERA ?",
-      answer: "Pour adhérer au CEERA, il faut payer la somme unique de 1000 FCFA comme droit d'adhésion. Cette somme donne droit à une carte de membre."
-    }
-  ];
-
-  return (
-    <div>
-      <HeroSection 
-        title="À propos du CEERA"
-        subtitle="Découvrez notre histoire, notre mission et nos valeurs"
-        backgroundImage="https://images.unsplash.com/photo-1472396961693-142e6e269027"
-      />
+  const values = [{
+    icon: <Heart className="h-8 w-8 text-ceera-orange" />,
+    title: "Solidarité",
+    description: "Nous nous entraidons et soutenons mutuellement dans toutes les circonstances."
+  }, {
+    icon: <Award className="h-8 w-8 text-ceera-orange" />,
+    title: "Excellence",
+    description: "Nous visons l'excellence dans toutes nos activités et encourageons nos membres à se surpasser."
+  }, {
+    icon: <Users className="h-8 w-8 text-ceera-orange" />,
+    title: "Inclusion",
+    description: "Nous accueillons et valorisons tous les ressortissants d'Agnibilékrou sans discrimination."
+  }, {
+    icon: <Target className="h-8 w-8 text-ceera-orange" />,
+    title: "Engagement",
+    description: "Nous nous engageons activement pour le développement de notre communauté et de notre région."
+  }];
+  const executiveStaff = [{
+    role: "Présidence",
+    members: [{
+      position: "Président",
+      name: "OUATTARA DRISSA"
+    }, {
+      position: "1er Vice-Président",
+      name: "Ouattara Abran Rose"
+    }, {
+      position: "2ème Vice-Président",
+      name: "Ouattara Lamine"
+    }]
+  }, {
+    role: "Secrétariat Général",
+    members: [{
+      position: "Secrétaire Général",
+      name: "Kouamé Kouadio Célestin"
+    }, {
+      position: "Adjoint 1",
+      name: "Akoua Awa"
+    }, {
+      position: "Adjoint 2",
+      name: "ATTA Yao Vital"
+    }]
+  }, {
+    role: "Secrétariat à l'Organisation",
+    members: [{
+      position: "Secrétaire à l'Organisation",
+      name: "Kamagaté Lamine"
+    }, {
+      position: "Adjoint 1",
+      name: "DIALLO ABOUBACAR"
+    }, {
+      position: "Adjoint 2",
+      name: "AIGNON Philipe"
+    }]
+  }, {
+    role: "Secrétariat à la Communication",
+    members: [{
+      position: "Secrétaire à la Communication",
+      name: "Kumassi Koffi Kié Jean-Marc"
+    }, {
+      position: "Adjoint 1",
+      name: "Trinité Samson"
+    }, {
+      position: "Adjoint 2",
+      name: "Kouadio Donatien"
+    }]
+  }, {
+    role: "Secrétariat aux Finances",
+    members: [{
+      position: "Secrétaire aux Finances",
+      name: "Palé Hibatoullah"
+    }, {
+      position: "Adjoint 1",
+      name: "Ouattara Mariam"
+    }, {
+      position: "Adjoint 2",
+      name: "Kamagaté Sania"
+    }]
+  }, {
+    role: "Secrétariat à la Culture et au Sport",
+    members: [{
+      position: "Secrétaire à la Culture et au Sport",
+      name: "Diallo Siriki Junior"
+    }, {
+      position: "Adjoint 1",
+      name: "Ouattara Masara"
+    }, {
+      position: "Adjoint 2",
+      name: "Ouattara Yaya"
+    }]
+  }, {
+    role: "Secrétariat aux Affaires Sociales",
+    members: [{
+      position: "Secrétaire aux Affaires Sociales",
+      name: "Ouattara Ibrahim"
+    }, {
+      position: "Adjoint 1",
+      name: "Fofana Salimata"
+    }, {
+      position: "Adjoint 2",
+      name: "Diallo Aïcha"
+    }]
+  }, {
+    role: "Secrétariat aux Affaires Académiques",
+    members: [{
+      position: "Secrétaire aux Affaires Académiques",
+      name: "Geï Amos"
+    }, {
+      position: "Adjoint 1",
+      name: "Pini Léontine"
+    }, {
+      position: "Adjoint 2",
+      name: "Traoré Ramdé Kadidjatou"
+    }]
+  }, {
+    role: "Secrétariat à l'Environnement et au Développement Durable",
+    members: [{
+      position: "Secrétaire à l'Environnement",
+      name: "Ouattara Brou Prince Blanchard"
+    }, {
+      position: "Adjoint 1",
+      name: "Ouattara Bakary"
+    }, {
+      position: "Adjoint 2",
+      name: "Blendou Ange Mauricette"
+    }]
+  }, {
+    role: "Secrétariat à l'Insertion Professionnelle et à l'Entrepreneuriat",
+    members: [{
+      position: "Secrétaire à l'Insertion Professionnelle",
+      name: "Kambou Ollo"
+    }, {
+      position: "Adjoint 1",
+      name: "Ouattara Amie"
+    }, {
+      position: "Adjoint 2",
+      name: "Boko Ama Valentine"
+    }]
+  }, {
+    role: "Commissariat aux Comptes",
+    members: [{
+      position: "Commissaire aux Comptes",
+      name: "YAO KOUADIO HENRI-JOEL"
+    }, {
+      position: "Adjoint 1",
+      name: "KOUASSI KOFFI ADAMA"
+    }, {
+      position: "Adjoint 2",
+      name: "ADOU ANOH JONAS"
+    }]
+  }];
+  const faqs = [{
+    question: "Qui peut devenir membre du CEERA ?",
+    answer: "Peuvent adhérer à l'association toutes personnes volontaires, ayant le statut d'élève ou étudiant, quel que soit le lieu où cette personne sera orientée. Il faut obligatoirement être un ressortissant d'Agnibilékrou."
+  }, {
+    question: "Comment le CEERA est-il organisé ?",
+    answer: "Le CEERA est dirigé par un bureau exécutif élu pour un mandat de 2 ans. Il est composé d'un président, de vice-présidents, d'un secrétaire général et de plusieurs secrétaires responsables de différents domaines."
+  }, {
+    question: "Quels sont les avantages d'être membre du CEERA ?",
+    answer: "En plus de faire partie d'un réseau solidaire, les membres bénéficient de soutien en cas de maladie grave (cotisation exceptionnelle d'au moins 1000 FCFA), en cas de décès d'un parent (cotisation de 500 FCFA et plus), en cas de mariage (cotisation de 1000 FCFA) ou de naissance (cotisation de 500 FCFA et autres présents)."
+  }, {
+    question: "Où est situé le siège du CEERA ?",
+    answer: "Le siège du CEERA est situé à Abidjan. Il dispose également d'une base dans la ville de Bouaké (CEERA-BOUAKÉ) et prévoit d'établir des bases dans toutes les villes où se trouvent des universités et grandes écoles (Agnibilékrou, Daloa, Yamoussoukro, Man, Korhogo, San-Pédro...)."
+  }, {
+    question: "Comment adhérer au CEERA ?",
+    answer: "Pour adhérer au CEERA, il faut payer la somme unique de 1000 FCFA comme droit d'adhésion. Cette somme donne droit à une carte de membre."
+  }];
+  return <div>
+      <HeroSection title="À propos du CEERA" subtitle="Découvrez notre histoire, notre mission et nos valeurs" backgroundImage="https://images.unsplash.com/photo-1472396961693-142e6e269027" />
 
       <section className="section bg-white">
         <div className="container mx-auto">
@@ -175,23 +197,11 @@ const About = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" 
-                  alt="Étudiants CEERA" 
-                  className="rounded-lg h-full object-cover"
-                />
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Étudiants CEERA" className="rounded-lg h-full object-cover" />
               </div>
               <div className="space-y-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" 
-                  alt="Activités CEERA" 
-                  className="rounded-lg h-[40%] object-cover"
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1466442929976-97f336a657be" 
-                  alt="Culture CEERA" 
-                  className="rounded-lg h-[60%] object-cover"
-                />
+                <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" alt="Activités CEERA" className="rounded-lg h-[40%] object-cover" />
+                <img src="https://images.unsplash.com/photo-1466442929976-97f336a657be" alt="Culture CEERA" className="rounded-lg h-[60%] object-cover" />
               </div>
             </div>
           </div>
@@ -270,13 +280,11 @@ const About = () => {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg text-center shadow-md transition-transform hover:scale-105">
+            {values.map((value, index) => <div key={index} className="bg-white p-6 rounded-lg text-center shadow-md transition-transform hover:scale-105">
                 <div className="mb-4 flex justify-center">{value.icon}</div>
                 <h3 className="text-xl font-bold mb-2">{value.title}</h3>
                 <p className="text-muted-foreground">{value.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -289,23 +297,19 @@ const About = () => {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {executiveStaff.map((department, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+            {executiveStaff.map((department, index) => <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
                 <div className="bg-ceera-dark text-white p-4">
                   <h3 className="text-xl font-semibold">{department.role}</h3>
                 </div>
                 <div className="p-4">
                   <ul className="space-y-2">
-                    {department.members.map((member, memberIndex) => (
-                      <li key={memberIndex} className="border-b last:border-0 pb-2 last:pb-0">
+                    {department.members.map((member, memberIndex) => <li key={memberIndex} className="border-b last:border-0 pb-2 last:pb-0">
                         <p className="font-semibold">{member.position}:</p>
                         <p className="text-ceera-orange">{member.name}</p>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -349,18 +353,14 @@ const About = () => {
           
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="w-full">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-left font-semibold">{faq.question}</AccordionTrigger>
+              {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="font-medium text-base text-left">{faq.question}</AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
-                </AccordionItem>
-              ))}
+                </AccordionItem>)}
             </Accordion>
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default About;
