@@ -55,6 +55,7 @@ const Contact = () => {
         title="Contactez-nous"
         subtitle="Nous sommes à votre disposition pour répondre à toutes vos questions"
         backgroundImage="https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
+        showLogo={true}
       />
 
       <section className="section bg-white">

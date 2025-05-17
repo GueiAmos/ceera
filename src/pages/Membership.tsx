@@ -2,7 +2,7 @@
 import HeroSection from '@/components/HeroSection';
 import MembershipForm from '@/components/MembershipForm';
 import { Card } from '@/components/CardSection';
-import { CheckCircle, AlertCircle, Users, Award, Heart, BookOpen, Calendar, User } from 'lucide-react';
+import { CheckCircle, AlertCircle, Users, Award, Heart, BookOpen, Calendar, User, FileText } from 'lucide-react';
 
 const Membership = () => {
   const benefits = [
@@ -51,19 +51,78 @@ const Membership = () => {
     }
   ];
 
+  const secretariats = [
+    {
+      title: "Présidence",
+      description: "Le Président est le chef du bureau exécutif. Il convoque les assemblées générales et les réunions, veille à l'application des délibérations et représente l'association dans tous les actes de la vie civile. Il est assisté de deux Vice-Présidents qui le remplacent en cas d'absence.",
+      icon: <User className="h-6 w-6 text-ceera-orange" />
+    },
+    {
+      title: "Secrétariat Général",
+      description: "Le Secrétaire Général est le responsable administratif de l'association. Il rédige les procès-verbaux des délibérations, assure la correspondance et garde les archives. Il est assisté de deux adjoints.",
+      icon: <FileText className="h-6 w-6 text-ceera-orange" />
+    },
+    {
+      title: "Secrétariat à l'Organisation",
+      description: "Le Secrétaire à l'Organisation assure l'organisation matérielle pratique de toutes les manifestations du CEERA (réunions, rencontres, conférences, débats, colloques, AG). Il est assisté de deux adjoints.",
+      icon: <Calendar className="h-6 w-6 text-ceera-orange" />
+    },
+    {
+      title: "Secrétariat aux Finances",
+      description: "Le Secrétaire aux Finances est chargé des affaires financières du CEERA. Il gère les versements et retraits mais ne peut faire ces mouvements qu'avec l'accord et la signature du Président. Il établit un programme de recherche de financement.",
+      icon: <FileText className="h-6 w-6 text-ceera-orange" />
+    },
+    {
+      title: "Secrétariat à la Communication",
+      description: "Le Secrétaire à la Communication est chargé de recueillir toutes les informations utiles intéressant directement ou indirectement le CEERA. Il est responsable des publications du collectif et assure la communication entre les différents organes.",
+      icon: <FileText className="h-6 w-6 text-ceera-orange" />
+    },
+    {
+      title: "Secrétariat à la Culture et au Sport",
+      description: "Le Secrétaire à la Culture et au Sport est chargé des affaires culturelles et sportives. Il organise les événements culturels, sportifs et récréatifs et défend l'image du CEERA dans ces domaines.",
+      icon: <FileText className="h-6 w-6 text-ceera-orange" />
+    },
+    {
+      title: "Secrétariat aux Affaires Sociales",
+      description: "Le Secrétaire aux Affaires Sociales est chargé des problèmes de santé des élèves et étudiants, ainsi que de leurs problèmes sociaux (logements, bourses, restauration, transport). Il met en place des programmes de soutien moral, matériel et financier.",
+      icon: <Heart className="h-6 w-6 text-ceera-orange" />
+    },
+    {
+      title: "Secrétariat aux Affaires Académiques",
+      description: "Le Secrétaire aux Affaires Académiques est chargé des questions scolaires et académiques comme les inscriptions, la scolarité, les examens, les orientations et veille aux droits et devoirs des élèves et étudiants.",
+      icon: <BookOpen className="h-6 w-6 text-ceera-orange" />
+    },
+    {
+      title: "Secrétariat au Développement Durable",
+      description: "Le Secrétaire au Développement Durable est chargé de la gestion saine et durable de l'environnement et du cadre de vie. Il veille à la salubrité et œuvre à préserver les ressources naturelles et l'équilibre écologique.",
+      icon: <FileText className="h-6 w-6 text-ceera-orange" />
+    },
+    {
+      title: "Secrétariat à l'Insertion Professionnelle",
+      description: "Le Secrétaire à l'Insertion Professionnelle est chargé de trouver des stages et emplois pour les membres du Collectif. Il établit des partenariats avec des entreprises et d'autres structures pour faciliter l'insertion des élèves et étudiants.",
+      icon: <FileText className="h-6 w-6 text-ceera-orange" />
+    },
+    {
+      title: "Commissariat aux Comptes",
+      description: "Les Commissaires aux Comptes contrôlent la gestion financière du bureau exécutif, examinent les comptes annuels et dressent un rapport spécial à l'Assemblée Générale. Ils peuvent vérifier l'état de la caisse à tout moment.",
+      icon: <FileText className="h-6 w-6 text-ceera-orange" />
+    }
+  ];
+
   return (
     <div>
       <HeroSection 
         title="Rejoignez notre collectif"
         subtitle="Devenez membre du CEERA et participez à nos initiatives"
         backgroundImage="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
+        showLogo={true}
       />
 
       <section className="section bg-white">
         <div className="container mx-auto">
           <h2 className="section-title">Qui peut devenir membre ?</h2>
           <p className="section-subtitle">
-            Le CEERA accueille les ressortissants d'Agnibilékrou selon des critères précis.
+            Le CEERA accueille les ressortissants d'Agnibilékrou selon les critères définis dans nos statuts.
           </p>
           
           <div className="grid md:grid-cols-2 gap-10 items-center mt-8">
@@ -147,6 +206,31 @@ const Membership = () => {
         </div>
       </section>
 
+      <section className="section bg-white">
+        <div className="container mx-auto">
+          <h2 className="section-title">Structure organisationnelle</h2>
+          <p className="section-subtitle">
+            Le CEERA fonctionne grâce à différents secrétariats, chacun avec ses responsabilités spécifiques pour assurer le bon fonctionnement du collectif.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            {secretariats.map((secretariat, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div className="flex items-center mb-4">
+                  <div className="bg-ceera-orange/10 p-2 rounded-full mr-3">
+                    {secretariat.icon}
+                  </div>
+                  <h3 className="text-xl font-bold">{secretariat.title}</h3>
+                </div>
+                <p className="text-gray-600">
+                  {secretariat.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section bg-ceera-dark text-white">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-6 text-center">Soutien aux membres</h2>
@@ -194,17 +278,14 @@ const Membership = () => {
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-lg font-bold mb-2">Quel est le montant de la cotisation annuelle ?</h3>
                 <p className="text-muted-foreground">
-                  L'adhésion au CEERA se fait par un paiement unique de 1000 FCFA. Des cotisations exceptionnelles peuvent être 
-                  demandées pour des événements spécifiques ou des actions de solidarité envers les membres.
+                  L'adhésion au CEERA se fait par un paiement unique de 1000 FCFA comme droit d'adhésion. Les membres actifs paient ensuite des cotisations mensuelles de 500 FCFA (membres réguliers) ou 1000 FCFA (membres du bureau). Des cotisations exceptionnelles peuvent être demandées pour des événements spécifiques ou des actions de solidarité.
                 </p>
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-lg font-bold mb-2">Quelles sont les obligations des membres ?</h3>
                 <p className="text-muted-foreground">
-                  Les membres du CEERA sont tenus de participer activement aux réunions et activités du collectif, 
-                  de respecter les valeurs et règlements de l'association, et de contribuer aux cotisations exceptionnelles 
-                  en cas de besoin (maladie, décès, mariage, naissance).
+                  Selon l'Article 7 du règlement intérieur, les membres actifs ont le devoir de s'acquitter de leurs différentes cotisations, participer à toutes les réunions, et respecter les décisions et délibérations du bureau exécutif et de l'Assemblée générale.
                 </p>
               </div>
               
@@ -219,8 +300,7 @@ const Membership = () => {
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-lg font-bold mb-2">Comment puis-je m'impliquer davantage dans le collectif ?</h3>
                 <p className="text-muted-foreground">
-                  Vous pouvez vous impliquer davantage en rejoignant l'une de nos commissions (culture, académique, sociale, etc.), 
-                  en proposant des projets ou initiatives, ou en vous présentant aux élections du bureau exécutif.
+                  Vous pouvez vous impliquer davantage en rejoignant l'un de nos secrétariats, en proposant des projets ou initiatives, ou en vous présentant aux élections du bureau exécutif qui ont lieu tous les deux ans.
                 </p>
               </div>
               

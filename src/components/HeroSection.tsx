@@ -11,6 +11,7 @@ interface HeroSectionProps {
   height?: 'small' | 'medium' | 'large';
   textAlign?: 'left' | 'center' | 'right';
   overlayOpacity?: number;
+  showLogo?: boolean;
 }
 
 const HeroSection = ({
@@ -22,6 +23,7 @@ const HeroSection = ({
   height = 'medium',
   textAlign = 'center',
   overlayOpacity = 0.6,
+  showLogo = false,
 }: HeroSectionProps) => {
   // Définir la hauteur en fonction de la prop height
   const getHeight = () => {
@@ -49,6 +51,15 @@ const HeroSection = ({
       style={bgStyle}
     >
       <div className={`container mx-auto px-4 z-10 ${getTextAlign()}`}>
+        {showLogo && (
+          <div className="flex justify-center mb-6">
+            <img 
+              src="/lovable-uploads/532a1231-eba2-4266-882d-eac4fa510703.png" 
+              alt="Logo CEERA" 
+              className="h-32 md:h-40 lg:h-48"
+            />
+          </div>
+        )}
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">{title}</h1>
         {subtitle && (
           <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 opacity-90">
