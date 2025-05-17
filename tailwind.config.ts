@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				ceera: {
+					orange: '#F97316',
+					brown: '#7C5A2C',
+					gold: '#F5A623',
+					green: '#136F63',
+					beige: '#F5F5DC',
+					dark: '#1A1F2C',
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -89,6 +98,13 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
+			fontFamily: {
+				sans: ['Poppins', 'sans-serif'],
+				heading: ['Montserrat', 'sans-serif'],
+			},
+			backgroundImage: {
+				'hero-pattern': "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1466442929976-97f336a657be')",
 			}
 		}
 	},
