@@ -1,7 +1,7 @@
 
 import HeroSection from '@/components/HeroSection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Target, Award, Users, UserPlus, Clock, Heart } from 'lucide-react';
+import { Target, Award, Users, UserPlus, Clock, Heart, FileText, Handshake } from 'lucide-react';
 
 const About = () => {
   const values = [
@@ -27,26 +27,117 @@ const About = () => {
     }
   ];
 
+  const executiveStaff = [
+    {
+      role: "Présidence",
+      members: [
+        { position: "Président", name: "OUATTARA DRISSA" },
+        { position: "1er Vice-Président", name: "Ouattara Abran Rose" },
+        { position: "2ème Vice-Président", name: "Ouattara Lamine" }
+      ]
+    },
+    {
+      role: "Secrétariat Général",
+      members: [
+        { position: "Secrétaire Général", name: "Kouamé Kouadio Célestin" },
+        { position: "Adjoint 1", name: "Akoua Awa" },
+        { position: "Adjoint 2", name: "ATTA Yao Vital" }
+      ]
+    },
+    {
+      role: "Secrétariat à l'Organisation",
+      members: [
+        { position: "Secrétaire à l'Organisation", name: "Kamagaté Lamine" },
+        { position: "Adjoint 1", name: "DIALLO ABOUBACAR" },
+        { position: "Adjoint 2", name: "AIGNON Philipe" }
+      ]
+    },
+    {
+      role: "Secrétariat à la Communication",
+      members: [
+        { position: "Secrétaire à la Communication", name: "Kumassi Koffi Kié Jean-Marc" },
+        { position: "Adjoint 1", name: "Trinité Samson" },
+        { position: "Adjoint 2", name: "Kouadio Donatien" }
+      ]
+    },
+    {
+      role: "Secrétariat aux Finances",
+      members: [
+        { position: "Secrétaire aux Finances", name: "Palé Hibatoullah" },
+        { position: "Adjoint 1", name: "Ouattara Mariam" },
+        { position: "Adjoint 2", name: "Kamagaté Sania" }
+      ]
+    },
+    {
+      role: "Secrétariat à la Culture et au Sport",
+      members: [
+        { position: "Secrétaire à la Culture et au Sport", name: "Diallo Siriki Junior" },
+        { position: "Adjoint 1", name: "Ouattara Masara" },
+        { position: "Adjoint 2", name: "Ouattara Yaya" }
+      ]
+    },
+    {
+      role: "Secrétariat aux Affaires Sociales",
+      members: [
+        { position: "Secrétaire aux Affaires Sociales", name: "Ouattara Ibrahim" },
+        { position: "Adjoint 1", name: "Fofana Salimata" },
+        { position: "Adjoint 2", name: "Diallo Aïcha" }
+      ]
+    },
+    {
+      role: "Secrétariat aux Affaires Académiques",
+      members: [
+        { position: "Secrétaire aux Affaires Académiques", name: "Geï Amos" },
+        { position: "Adjoint 1", name: "Pini Léontine" },
+        { position: "Adjoint 2", name: "Traoré Ramdé Kadidjatou" }
+      ]
+    },
+    {
+      role: "Secrétariat à l'Environnement et au Développement Durable",
+      members: [
+        { position: "Secrétaire à l'Environnement", name: "Ouattara Brou Prince Blanchard" },
+        { position: "Adjoint 1", name: "Ouattara Bakary" },
+        { position: "Adjoint 2", name: "Blendou Ange Mauricette" }
+      ]
+    },
+    {
+      role: "Secrétariat à l'Insertion Professionnelle et à l'Entrepreneuriat",
+      members: [
+        { position: "Secrétaire à l'Insertion Professionnelle", name: "Kambou Ollo" },
+        { position: "Adjoint 1", name: "Ouattara Amie" },
+        { position: "Adjoint 2", name: "Boko Ama Valentine" }
+      ]
+    },
+    {
+      role: "Commissariat aux Comptes",
+      members: [
+        { position: "Commissaire aux Comptes", name: "YAO KOUADIO HENRI-JOEL" },
+        { position: "Adjoint 1", name: "KOUASSI KOFFI ADAMA" },
+        { position: "Adjoint 2", name: "ADOU ANOH JONAS" }
+      ]
+    }
+  ];
+
   const faqs = [
     {
       question: "Qui peut devenir membre du CEERA ?",
-      answer: "Tous les élèves et étudiants ressortissants d'Agnibilékrou peuvent devenir membres du CEERA. Nous accueillons également les sympathisants qui partagent nos valeurs et souhaitent contribuer à nos actions."
+      answer: "Peuvent adhérer à l'association toutes personnes volontaires, ayant le statut d'élève ou étudiant, quel que soit le lieu où cette personne sera orientée. Il faut obligatoirement être un ressortissant d'Agnibilékrou."
     },
     {
       question: "Comment le CEERA est-il organisé ?",
-      answer: "Le CEERA est dirigé par un bureau exécutif élu pour un mandat de 2 ans. Il est composé d'un président, d'un vice-président, d'un secrétaire général, d'un trésorier et de plusieurs responsables de commissions."
+      answer: "Le CEERA est dirigé par un bureau exécutif élu pour un mandat de 2 ans. Il est composé d'un président, de vice-présidents, d'un secrétaire général et de plusieurs secrétaires responsables de différents domaines."
     },
     {
-      question: "Quelles sont les activités organisées par le CEERA ?",
-      answer: "Le CEERA organise diverses activités tout au long de l'année : journées culturelles, séances de soutien scolaire, actions sociales et solidaires, activités sportives, et conférences-débats sur des thèmes variés."
+      question: "Quels sont les avantages d'être membre du CEERA ?",
+      answer: "En plus de faire partie d'un réseau solidaire, les membres bénéficient de soutien en cas de maladie grave (cotisation exceptionnelle d'au moins 1000 FCFA), en cas de décès d'un parent (cotisation de 500 FCFA et plus), en cas de mariage (cotisation de 1000 FCFA) ou de naissance (cotisation de 500 FCFA et autres présents)."
     },
     {
-      question: "Comment le CEERA finance-t-il ses activités ?",
-      answer: "Le financement du CEERA provient principalement des cotisations de ses membres, de dons, de partenariats et des revenus générés par certaines activités organisées par l'association."
+      question: "Où est situé le siège du CEERA ?",
+      answer: "Le siège du CEERA est situé à Abidjan. Il dispose également d'une base dans la ville de Bouaké (CEERA-BOUAKÉ) et prévoit d'établir des bases dans toutes les villes où se trouvent des universités et grandes écoles (Agnibilékrou, Daloa, Yamoussoukro, Man, Korhogo, San-Pédro...)."
     },
     {
-      question: "Le CEERA collabore-t-il avec d'autres associations ?",
-      answer: "Oui, le CEERA collabore régulièrement avec d'autres associations d'étudiants et d'élèves, ainsi qu'avec des ONG et des institutions pour la réalisation de projets communs."
+      question: "Comment adhérer au CEERA ?",
+      answer: "Pour adhérer au CEERA, il faut payer la somme unique de 1000 FCFA comme droit d'adhésion. Cette somme donne droit à une carte de membre."
     }
   ];
 
@@ -64,16 +155,22 @@ const About = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6">Notre histoire</h2>
               <p className="mb-4">
-                Le Collectif des Élèves et Étudiants Ressortissants d'Agnibilékrou (CEERA) a été fondé en 2015 par un groupe d'étudiants 
-                animés par la volonté de créer un espace de solidarité et d'entraide pour tous les ressortissants de cette région.
+                Le Collectif des Élèves et Étudiants Ressortissants d'Agnibilékrou (CEERA) est une association apolitique, 
+                laïque et à but non lucratif créée pour le bien-être des élèves et étudiants ressortissants d'Agnibilékrou.
               </p>
               <p className="mb-4">
-                Depuis sa création, le CEERA n'a cessé de croître, accueillant chaque année de nouveaux membres et élargissant son champ d'action. 
-                Ce qui a commencé comme un simple groupe d'entraide est devenu une association dynamique et influente.
+                Officialisé par récépissé de déclaration d'association N⁰195/P-AGNI/CAB le 03 février 2023, 
+                tel que régi par la loi N⁰60-315 du 21 septembre 1960 relative aux associations, le CEERA 
+                s'est donné comme mission principale de rassembler les élèves et étudiants ressortissants d'Agnibilékrou.
+              </p>
+              <p className="mb-4">
+                Après le baccalauréat, les étudiants sont orientés dans diverses universités, grandes écoles et villes. 
+                Pour maintenir les liens entre les ressortissants malgré cette dispersion géographique, 
+                le CEERA a été créé comme un point de ralliement et une structure d'entraide.
               </p>
               <p>
-                Aujourd'hui, le CEERA compte plusieurs centaines de membres actifs et s'impose comme un acteur important du développement 
-                académique, culturel et social d'Agnibilékrou.
+                Aujourd'hui, le CEERA fonctionne sur la base d'un statut et d'un règlement intérieur et est 
+                reconnu par les autorités politiques, témoignant du sérieux qui règne au sein de ce collectif.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -180,6 +277,65 @@ const About = () => {
                 <p className="text-muted-foreground">{value.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-ceera-orange/10">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold mb-6 text-center">Bureau Exécutif National (2025-2027)</h2>
+          <p className="text-lg max-w-3xl mx-auto text-center mb-12">
+            Notre bureau exécutif est composé de membres dévoués qui travaillent avec passion pour atteindre les objectifs du CEERA.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {executiveStaff.map((department, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div className="bg-ceera-dark text-white p-4">
+                  <h3 className="text-xl font-semibold">{department.role}</h3>
+                </div>
+                <div className="p-4">
+                  <ul className="space-y-2">
+                    {department.members.map((member, memberIndex) => (
+                      <li key={memberIndex} className="border-b last:border-0 pb-2 last:pb-0">
+                        <p className="font-semibold">{member.position}:</p>
+                        <p className="text-ceera-orange">{member.name}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-ceera-dark text-white">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold mb-6 text-center">Nos implantations</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white/10 p-6 rounded-lg mb-8">
+              <h3 className="text-xl font-bold mb-4">Siège principal</h3>
+              <p className="mb-2">
+                Le siège du CEERA est situé à Abidjan. Il peut être transféré, en cas de besoin, 
+                en tout autre lieu du territoire national sur décision de l'assemblée générale.
+              </p>
+            </div>
+
+            <div className="bg-white/10 p-6 rounded-lg mb-8">
+              <h3 className="text-xl font-bold mb-4">Bases existantes</h3>
+              <p className="mb-2">
+                Le CEERA dispose d'une base dans la ville de Bouaké, dénommée CEERA-BOUAKÉ.
+              </p>
+            </div>
+
+            <div className="bg-white/10 p-6 rounded-lg">
+              <h3 className="text-xl font-bold mb-4">Expansion future</h3>
+              <p className="mb-2">
+                Le CEERA prévoit d'établir des bases dans toutes les villes où se trouvent des universités 
+                et grandes écoles, notamment à Agnibilékrou, Daloa, Yamoussoukro, Man, Korhogo, San-Pédro, et ailleurs.
+              </p>
+            </div>
           </div>
         </div>
       </section>

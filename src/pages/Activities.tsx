@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import HeroSection from '@/components/HeroSection';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calendar, Clock, MapPin } from 'lucide-react';
+import { Calendar, Clock, MapPin, Target, Handshake, BookOpen, Users, Award } from 'lucide-react';
 
 const Activities = () => {
   const [activeTab, setActiveTab] = useState("culturelles");
@@ -108,15 +108,39 @@ const Activities = () => {
         "Conférence sur l'orientation professionnelle",
         "Organisation d'un hackathon pour les jeunes développeurs"
       ]
+    }
+  ];
+
+  const objectives = [
+    {
+      icon: <Target className="h-8 w-8 text-ceera-orange" />,
+      title: "Renforcement de l'engagement des membres",
+      description: "Augmenter la participation des membres aux événements et réunions en mettant en place des initiatives d'engagement."
     },
     {
-      year: "2022",
-      events: [
-        "Lancement de notre programme de bourses d'études",
-        "Campagne de sensibilisation sur la santé",
-        "Organisation d'un festival culturel",
-        "Mise en place d'une bibliothèque communautaire"
-      ]
+      icon: <Calendar className="h-8 w-8 text-ceera-orange" />,
+      title: "Événements diversifiés",
+      description: "Organiser au moins un événement majeur chaque trimestre pour promouvoir la cohésion et l'échange entre membres."
+    },
+    {
+      icon: <Users className="h-8 w-8 text-ceera-orange" />,
+      title: "Amélioration de la communication",
+      description: "Établir des canaux de communication clairs pour informer et mobiliser efficacement les membres."
+    },
+    {
+      icon: <Handshake className="h-8 w-8 text-ceera-orange" />,
+      title: "Partenariats stratégiques",
+      description: "Établir des collaborations avec d'autres associations, entreprises et institutions pour faciliter l'accès à des ressources."
+    },
+    {
+      icon: <Award className="h-8 w-8 text-ceera-orange" />,
+      title: "Formation et développement",
+      description: "Offrir des ateliers de formation sur des compétences utiles pour favoriser le développement personnel des membres."
+    },
+    {
+      icon: <BookOpen className="h-8 w-8 text-ceera-orange" />,
+      title: "Soutien académique",
+      description: "Mettre en place un programme de tutorat où des étudiants plus avancés aident ceux qui rencontrent des difficultés."
     }
   ];
 
@@ -133,6 +157,29 @@ const Activities = () => {
       />
 
       <section className="section bg-white">
+        <div className="container mx-auto">
+          <h2 className="section-title">Nos objectifs</h2>
+          <p className="section-subtitle">
+            Le CEERA s'est fixé des objectifs ambitieux pour améliorer l'expérience de ses membres et contribuer au développement d'Agnibilékrou.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            {objectives.map((objective, index) => (
+              <div key={index} className="bg-secondary/30 p-6 rounded-lg shadow-sm">
+                <div className="flex items-center mb-4">
+                  <div className="bg-ceera-orange/10 p-3 rounded-full mr-3">
+                    {objective.icon}
+                  </div>
+                  <h3 className="text-lg font-bold">{objective.title}</h3>
+                </div>
+                <p className="text-muted-foreground">{objective.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-secondary/50">
         <div className="container mx-auto">
           <h2 className="section-title">Prochains événements</h2>
           <p className="section-subtitle">
@@ -340,75 +387,54 @@ const Activities = () => {
 
       <section className="section bg-ceera-dark text-white">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-6 text-center">Notre impact</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-12">
-            <div className="p-6">
-              <div className="text-4xl font-bold text-ceera-orange mb-2">500+</div>
-              <p className="text-lg">Membres actifs</p>
+          <h2 className="text-3xl font-bold mb-6 text-center">Objectifs stratégiques</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="bg-white/10 p-6 rounded-lg">
+              <h3 className="text-xl font-bold mb-4">Promotion de la diversité et de l'inclusion</h3>
+              <p className="text-gray-300">
+                Travailler à créer un environnement accueillant pour tous les élèves et étudiants, quelle que soit leur origine, 
+                en organisant des événements qui célèbrent la diversité culturelle et en favorisant un espace inclusif 
+                au sein de l'association.
+              </p>
             </div>
-            <div className="p-6">
-              <div className="text-4xl font-bold text-ceera-orange mb-2">50+</div>
-              <p className="text-lg">Événements organisés</p>
+
+            <div className="bg-white/10 p-6 rounded-lg">
+              <h3 className="text-xl font-bold mb-4">Sensibilisation aux enjeux sociaux et environnementaux</h3>
+              <p className="text-gray-300">
+                Intégrer des actions de responsabilité sociale et environnementale dans les activités de l'association, 
+                par exemple en organisant des campagnes de sensibilisation ou des collectes de fonds pour des causes importantes.
+              </p>
             </div>
-            <div className="p-6">
-              <div className="text-4xl font-bold text-ceera-orange mb-2">10+</div>
-              <p className="text-lg">Années d'existence</p>
+
+            <div className="bg-white/10 p-6 rounded-lg">
+              <h3 className="text-xl font-bold mb-4">Système de mentorat</h3>
+              <p className="text-gray-300">
+                Établir un programme de mentorat où des étudiants plus expérimentés accompagnent les nouveaux membres 
+                dans leur parcours académique et leur orientation professionnelle.
+              </p>
+            </div>
+
+            <div className="bg-white/10 p-6 rounded-lg">
+              <h3 className="text-xl font-bold mb-4">Financement durable</h3>
+              <p className="text-gray-300">
+                Élaborer un plan de financement solide, incluant des stratégies pour lever des fonds, 
+                comme des événements de collecte de fonds ou des partenariats sponsorisés.
+              </p>
             </div>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-10">
-            <div>
-              <img 
-                src="https://images.unsplash.com/photo-1472396961693-142e6e269027" 
-                alt="Impact CEERA" 
-                className="rounded-lg shadow-xl h-full object-cover"
-              />
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Nos réalisations</h3>
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <div className="bg-ceera-orange rounded-full p-1 mt-1 mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                  <p>Mise en place d'un programme de bourses d'études qui a bénéficié à plus de 50 étudiants méritants</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="bg-ceera-orange rounded-full p-1 mt-1 mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                  <p>Rénovation de trois écoles primaires dans la région d'Agnibilékrou</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="bg-ceera-orange rounded-full p-1 mt-1 mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                  <p>Création d'une bibliothèque communautaire avec plus de 2000 livres accessibles à tous</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="bg-ceera-orange rounded-full p-1 mt-1 mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                  <p>Organisation de campagnes annuelles de santé offrant des consultations gratuites</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="bg-ceera-orange rounded-full p-1 mt-1 mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                  <p>Plantation de plus de 1000 arbres dans le cadre de notre programme de reboisement</p>
-                </li>
-              </ul>
-            </div>
+          <div className="max-w-4xl mx-auto bg-white/10 p-8 rounded-lg">
+            <h3 className="text-2xl font-bold mb-4 text-center">Un engagement social au service de la communauté</h3>
+            <p className="text-gray-200 mb-6">
+              Le CEERA s'affirme non seulement comme une association académique, mais également comme un acteur clé 
+              dans le développement social de notre communauté. À travers ses diverses actions, le CEERA démontre un 
+              engagement profond envers ses membres et l'ensemble de la population d'Agnibilékrou.
+            </p>
+            <p className="text-gray-200">
+              Notre objectif est de mener des actions pour le développement d'Agnibilékrou et l'épanouissement des élèves 
+              et étudiants de la ville et issus de la ville. Tous ceux qui sont dans l'association partagent l'amour 
+              de la ville d'Agnibilékrou et travaillent ensemble pour son avenir.
+            </p>
           </div>
         </div>
       </section>

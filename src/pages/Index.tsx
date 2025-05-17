@@ -3,7 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import CardSection from '@/components/CardSection';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Activity, Users, BookOpen, Calendar, Award } from 'lucide-react';
+import { Activity, Users, BookOpen, Calendar, Award, Handshake, BookOpen as BookOpenIcon, FileText } from 'lucide-react';
 
 const Index = () => {
   const featureCards = [
@@ -46,7 +46,7 @@ const Index = () => {
     <div>
       <HeroSection 
         title="Collectif des Élèves et Étudiants Ressortissants d'Agnibilékrou"
-        subtitle="Unis par nos origines, engagés pour notre avenir"
+        subtitle="Créé le 3 février 2023 - Association apolitique, laïque et à but non lucratif"
         buttonText="Rejoignez-nous"
         buttonLink="/membership"
       />
@@ -79,12 +79,13 @@ const Index = () => {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">À propos du CEERA</h2>
               <p className="mb-6">
-                Le Collectif des Élèves et Étudiants Ressortissants d'Agnibilékrou (CEERA) est une association qui oeuvre depuis plusieurs années 
-                pour l'épanouissement, la solidarité et le développement des compétences de ses membres.
+                Le Collectif des Élèves et Étudiants Ressortissants d'Agnibilékrou (CEERA) est une association qui œuvre 
+                pour le bien-être et l'épanouissement des élèves et étudiants originaires d'Agnibilékrou, peu importe où ils poursuivent leurs études.
               </p>
               <p className="mb-6">
-                Notre collectif organise régulièrement des activités culturelles, académiques et sociales pour maintenir un lien fort 
-                entre tous les ressortissants et contribuer au développement de notre région d'origine.
+                Créée par récépissé de déclaration d'association N⁰195/P-AGNI/CAB le 03 février 2023, 
+                tel que régie par la loi N⁰60-315 du 21 septembre 1960 relative aux associations, 
+                notre collectif rassemble et soutient les ressortissants d'Agnibilékrou à travers toute la Côte d'Ivoire.
               </p>
               <div className="flex space-x-4">
                 <Link to="/about">
@@ -110,10 +111,88 @@ const Index = () => {
                   <Award size={24} className="mr-2" />
                   <div>
                     <p className="text-sm">Fondé en</p>
-                    <p className="font-bold text-xl">2015</p>
+                    <p className="font-bold text-xl">2023</p>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-white">
+        <div className="container mx-auto">
+          <h2 className="section-title">Nos objectifs</h2>
+          <p className="section-subtitle">
+            Le CEERA s'engage à créer un environnement favorable à l'épanouissement de ses membres
+            à travers plusieurs actions concrètes.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+            <div className="bg-secondary/30 p-6 rounded-lg">
+              <div className="flex items-center mb-4">
+                <Handshake className="h-8 w-8 text-ceera-orange mr-3" />
+                <h3 className="text-xl font-bold">Solidarité</h3>
+              </div>
+              <p className="text-muted-foreground">
+                Établir des liens de solidarité entre les élèves et étudiants ressortissants d'Agnibilékrou, 
+                pour qu'ils se sentent toujours en famille où qu'ils soient.
+              </p>
+            </div>
+            
+            <div className="bg-secondary/30 p-6 rounded-lg">
+              <div className="flex items-center mb-4">
+                <Users className="h-8 w-8 text-ceera-orange mr-3" />
+                <h3 className="text-xl font-bold">Réseau d'entraide</h3>
+              </div>
+              <p className="text-muted-foreground">
+                Créer un réseau d'entraide intellectuel, social et professionnel entre les élèves et 
+                étudiants ressortissants d'Agnibilékrou.
+              </p>
+            </div>
+            
+            <div className="bg-secondary/30 p-6 rounded-lg">
+              <div className="flex items-center mb-4">
+                <Activity className="h-8 w-8 text-ceera-orange mr-3" />
+                <h3 className="text-xl font-bold">Actions sociales</h3>
+              </div>
+              <p className="text-muted-foreground">
+                Appuyer les actions sociales, économiques et culturelles des membres de l'association 
+                dans la limite de ses moyens.
+              </p>
+            </div>
+            
+            <div className="bg-secondary/30 p-6 rounded-lg">
+              <div className="flex items-center mb-4">
+                <BookOpenIcon className="h-8 w-8 text-ceera-orange mr-3" />
+                <h3 className="text-xl font-bold">Accompagnement</h3>
+              </div>
+              <p className="text-muted-foreground">
+                Apporter un appui et des conseils aux membres dans la réalisation de leurs projets personnels 
+                et professionnels.
+              </p>
+            </div>
+            
+            <div className="bg-secondary/30 p-6 rounded-lg">
+              <div className="flex items-center mb-4">
+                <FileText className="h-8 w-8 text-ceera-orange mr-3" />
+                <h3 className="text-xl font-bold">Sensibilisation</h3>
+              </div>
+              <p className="text-muted-foreground">
+                Organiser des évènements de sensibilisation afin de réduire le taux de dangers auxquels 
+                est liée la jeunesse.
+              </p>
+            </div>
+            
+            <div className="bg-secondary/30 p-6 rounded-lg">
+              <div className="flex items-center mb-4">
+                <Award className="h-8 w-8 text-ceera-orange mr-3" />
+                <h3 className="text-xl font-bold">Bénévolat</h3>
+              </div>
+              <p className="text-muted-foreground">
+                Faire du bénévolat par moment afin de soutenir des personnes qui en ont besoin et 
+                contribuer au développement d'Agnibilékrou.
+              </p>
             </div>
           </div>
         </div>
@@ -130,7 +209,7 @@ const Index = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Rejoignez notre collectif</h2>
           <p className="text-lg max-w-2xl mx-auto mb-8">
             Vous êtes originaire d'Agnibilékrou et souhaitez faire partie d'une communauté dynamique et engagée ? 
-            N'hésitez pas à nous rejoindre !
+            Rejoignez le CEERA pour seulement 1000 FCFA de frais d'adhésion et bénéficiez de nombreux avantages !
           </p>
           <Link to="/membership">
             <Button size="lg" className="bg-ceera-orange hover:bg-ceera-brown text-white">
