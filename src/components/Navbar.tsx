@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Activity, Users, Mail, BookOpen, Home, Camera, PanelRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
@@ -9,13 +9,13 @@ const Navbar = () => {
   const location = useLocation();
 
   const links = [
-    { name: 'Accueil', path: '/', icon: <Home className="w-5 h-5 mr-1" /> },
-    { name: 'À propos', path: '/about', icon: <BookOpen className="w-5 h-5 mr-1" /> },
-    { name: 'Blog & Actualités', path: '/activities', icon: <Activity className="w-5 h-5 mr-1" /> },
-    { name: 'Galerie Photos', path: '/gallery', icon: <Camera className="w-5 h-5 mr-1" /> },
-    { name: 'Équipe', path: '/team', icon: <PanelRight className="w-5 h-5 mr-1" /> },
-    { name: 'Adhésion', path: '/membership', icon: <Users className="w-5 h-5 mr-1" /> },
-    { name: 'Contact', path: '/contact', icon: <Mail className="w-5 h-5 mr-1" /> },
+    { name: 'Accueil', path: '/' },
+    { name: 'À propos', path: '/about' },
+    { name: 'Actualités', path: '/activities' },
+    { name: 'Galerie', path: '/gallery' },
+    { name: 'Équipe', path: '/team' },
+    { name: 'Adhésion', path: '/membership' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -36,18 +36,17 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-8">
             {links.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`flex items-center transition-colors duration-300 text-sm ${
+                className={`transition-colors duration-300 text-base font-medium ${
                   isActive(link.path)
-                    ? 'text-ceera-orange font-medium'
+                    ? 'text-ceera-orange border-b-2 border-ceera-orange pb-1'
                     : 'text-foreground hover:text-ceera-orange'
                 }`}
               >
-                {link.icon}
                 {link.name}
               </Link>
             ))}
@@ -77,14 +76,13 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`flex items-center p-3 rounded-md transition-colors ${
+                className={`p-3 rounded-md transition-colors ${
                   isActive(link.path)
                     ? 'bg-secondary text-ceera-orange font-medium'
                     : 'hover:bg-secondary'
                 }`}
               >
-                {link.icon}
-                <span className="ml-2">{link.name}</span>
+                {link.name}
               </Link>
             ))}
           </div>
