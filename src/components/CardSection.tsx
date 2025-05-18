@@ -1,5 +1,7 @@
 
 import { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 interface CardProps {
   title: string;
@@ -36,9 +38,11 @@ interface CardSectionProps {
   subtitle?: string;
   cards: CardProps[];
   columns?: number;
+  buttonText?: string;
+  buttonLink?: string;
 }
 
-const CardSection = ({ title, subtitle, cards, columns = 3 }: CardSectionProps) => {
+const CardSection = ({ title, subtitle, cards, columns = 3, buttonText, buttonLink }: CardSectionProps) => {
   const getGridCols = () => {
     switch (columns) {
       case 1: return "grid-cols-1";
@@ -59,6 +63,15 @@ const CardSection = ({ title, subtitle, cards, columns = 3 }: CardSectionProps) 
             <Card key={index} {...card} />
           ))}
         </div>
+        {buttonText && buttonLink && (
+          <div className="mt-8 text-center">
+            <Link to={buttonLink}>
+              <Button className="bg-ceera-orange hover:bg-ceera-brown text-white">
+                {buttonText}
+              </Button>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
