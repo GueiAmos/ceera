@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Activity, Users, Mail, BookOpen, Home } from 'lucide-react';
+import { Menu, X, Activity, Users, Mail, BookOpen, Home, Camera, PanelRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
@@ -11,7 +11,9 @@ const Navbar = () => {
   const links = [
     { name: 'Accueil', path: '/', icon: <Home className="w-5 h-5 mr-1" /> },
     { name: 'À propos', path: '/about', icon: <BookOpen className="w-5 h-5 mr-1" /> },
-    { name: 'Activités', path: '/activities', icon: <Activity className="w-5 h-5 mr-1" /> },
+    { name: 'Blog & Actualités', path: '/activities', icon: <Activity className="w-5 h-5 mr-1" /> },
+    { name: 'Galerie Photos', path: '/gallery', icon: <Camera className="w-5 h-5 mr-1" /> },
+    { name: 'Équipe', path: '/team', icon: <PanelRight className="w-5 h-5 mr-1" /> },
     { name: 'Adhésion', path: '/membership', icon: <Users className="w-5 h-5 mr-1" /> },
     { name: 'Contact', path: '/contact', icon: <Mail className="w-5 h-5 mr-1" /> },
   ];
@@ -25,16 +27,21 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
+            <img 
+              src="/lovable-uploads/532a1231-eba2-4266-882d-eac4fa510703.png" 
+              alt="Logo CEERA" 
+              className="h-10 w-10"
+            />
             <span className="font-heading font-bold text-2xl tracking-tight text-ceera-orange">CEERA</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-4">
             {links.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`flex items-center transition-colors duration-300 ${
+                className={`flex items-center transition-colors duration-300 text-sm ${
                   isActive(link.path)
                     ? 'text-ceera-orange font-medium'
                     : 'text-foreground hover:text-ceera-orange'

@@ -2,10 +2,67 @@
 import { useState } from 'react';
 import HeroSection from '@/components/HeroSection';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calendar, Clock, MapPin, Target, Handshake, BookOpen, Users, Award } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users, FileText } from 'lucide-react';
 
 const Activities = () => {
-  const [activeTab, setActiveTab] = useState("culturelles");
+  const [activeTab, setActiveTab] = useState("toutes");
+
+  const blogPosts = [
+    {
+      id: 1,
+      title: "Compte-rendu de l'Assemblée Générale 2025",
+      category: "comptes-rendus",
+      date: "15 Février 2025",
+      author: "Secrétariat Général",
+      excerpt: "L'Assemblée Générale annuelle du CEERA s'est tenue le 15 février 2025 à Abidjan. Les membres du bureau exécutif ont présenté le bilan de l'année écoulée et les projets pour 2025.",
+      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
+    },
+    {
+      id: 2,
+      title: "Célébration de la journée culturelle à Agnibilékrou",
+      category: "evenements",
+      date: "20 Mars 2025",
+      author: "Secrétariat à la Culture",
+      excerpt: "La journée culturelle du CEERA a été un véritable succès avec plus de 200 participants. Danses traditionnelles, contes et dégustation de plats locaux étaient au programme.",
+      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be"
+    },
+    {
+      id: 3,
+      title: "Lancement du programme de mentorat académique",
+      category: "actualites",
+      date: "10 Avril 2025",
+      author: "Secrétariat aux Affaires Académiques",
+      excerpt: "Le CEERA lance un nouveau programme de mentorat pour aider les étudiants dans leur parcours universitaire. Les mentors expérimentés partageront leurs connaissances et conseils.",
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
+    },
+    {
+      id: 4,
+      title: "Procès-verbal de la réunion mensuelle du bureau",
+      category: "comptes-rendus",
+      date: "5 Mai 2025",
+      author: "Secrétariat Général",
+      excerpt: "Le bureau exécutif s'est réuni le 5 mai pour discuter des projets en cours et planifier les activités du trimestre. Plusieurs décisions importantes ont été prises.",
+      image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb"
+    },
+    {
+      id: 5,
+      title: "Succès de l'opération de reboisement à Agnibilékrou",
+      category: "actualites",
+      date: "18 Juin 2025",
+      author: "Secrétariat à l'Environnement",
+      excerpt: "Plus de 500 arbres ont été plantés lors de l'opération de reboisement organisée par le CEERA à Agnibilékrou. Une action concrète pour l'environnement.",
+      image: "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843"
+    },
+    {
+      id: 6,
+      title: "Bilan du tournoi sportif inter-écoles",
+      category: "evenements",
+      date: "25 Juillet 2025",
+      author: "Secrétariat à la Culture et au Sport",
+      excerpt: "Le tournoi sportif inter-écoles organisé par le CEERA a réuni plus de 10 établissements scolaires d'Agnibilékrou. L'école primaire Saint-Jean a remporté le tournoi de football.",
+      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22"
+    }
+  ];
 
   const upcomingEvents = [
     {
@@ -47,46 +104,6 @@ const Activities = () => {
       image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
       category: "sociales",
       description: "Une campagne de sensibilisation sur les maladies courantes et les mesures préventives, avec distribution de kits sanitaires."
-    },
-    {
-      id: 5,
-      title: "Conférence sur l'entrepreneuriat",
-      date: "18 Juin 2025",
-      time: "15:00 - 18:00",
-      location: "Centre culturel d'Agnibilékrou",
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-      category: "academiques",
-      description: "Une conférence animée par des entrepreneurs locaux qui partagent leur parcours et conseils pour se lancer dans l'entrepreneuriat."
-    },
-    {
-      id: 6,
-      title: "Collecte de dons pour les orphelinats",
-      date: "25 Juillet 2025",
-      time: "Toute la journée",
-      location: "Divers points de collecte",
-      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
-      category: "sociales",
-      description: "Une collecte de dons (vêtements, fournitures scolaires, jouets) pour les orphelinats de la région d'Agnibilékrou."
-    },
-    {
-      id: 7,
-      title: "Concours de danse traditionnelle",
-      date: "12 Août 2025",
-      time: "14:00 - 18:00",
-      location: "Centre culturel d'Agnibilékrou",
-      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be",
-      category: "culturelles",
-      description: "Un concours mettant en compétition différents groupes de danse traditionnelle pour valoriser et préserver notre patrimoine culturel."
-    },
-    {
-      id: 8,
-      title: "Marathon de la solidarité",
-      date: "3 Juillet 2025",
-      time: "07:00 - 12:00",
-      location: "Départ : Place de la mairie",
-      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027",
-      category: "sportives",
-      description: "Un marathon dont les fonds récoltés serviront à financer des projets éducatifs pour les enfants défavorisés de la région."
     }
   ];
 
@@ -111,71 +128,106 @@ const Activities = () => {
     }
   ];
 
-  const objectives = [
-    {
-      icon: <Target className="h-8 w-8 text-ceera-orange" />,
-      title: "Renforcement de l'engagement des membres",
-      description: "Augmenter la participation des membres aux événements et réunions en mettant en place des initiatives d'engagement."
-    },
-    {
-      icon: <Calendar className="h-8 w-8 text-ceera-orange" />,
-      title: "Événements diversifiés",
-      description: "Organiser au moins un événement majeur chaque trimestre pour promouvoir la cohésion et l'échange entre membres."
-    },
-    {
-      icon: <Users className="h-8 w-8 text-ceera-orange" />,
-      title: "Amélioration de la communication",
-      description: "Établir des canaux de communication clairs pour informer et mobiliser efficacement les membres."
-    },
-    {
-      icon: <Handshake className="h-8 w-8 text-ceera-orange" />,
-      title: "Partenariats stratégiques",
-      description: "Établir des collaborations avec d'autres associations, entreprises et institutions pour faciliter l'accès à des ressources."
-    },
-    {
-      icon: <Award className="h-8 w-8 text-ceera-orange" />,
-      title: "Formation et développement",
-      description: "Offrir des ateliers de formation sur des compétences utiles pour favoriser le développement personnel des membres."
-    },
-    {
-      icon: <BookOpen className="h-8 w-8 text-ceera-orange" />,
-      title: "Soutien académique",
-      description: "Mettre en place un programme de tutorat où des étudiants plus avancés aident ceux qui rencontrent des difficultés."
-    }
-  ];
-
-  const filteredEvents = activeTab === "toutes" 
-    ? upcomingEvents 
-    : upcomingEvents.filter(event => event.category === activeTab);
+  const filteredPosts = activeTab === "toutes" 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === activeTab);
 
   return (
     <div>
       <HeroSection 
-        title="Nos activités"
-        subtitle="Découvrez les événements et initiatives du CEERA"
-        backgroundImage="https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
+        title="Blog & Actualités"
+        subtitle="Restez informés des dernières nouvelles et événements du CEERA"
+        backgroundImage="https://images.unsplash.com/photo-1523712999610-f77fbcfc3843"
+        showLogo={true}
       />
 
       <section className="section bg-white">
         <div className="container mx-auto">
-          <h2 className="section-title">Nos objectifs</h2>
+          <h2 className="section-title">Dernières actualités</h2>
           <p className="section-subtitle">
-            Le CEERA s'est fixé des objectifs ambitieux pour améliorer l'expérience de ses membres et contribuer au développement d'Agnibilékrou.
+            Découvrez les dernières nouvelles, comptes-rendus de réunions et événements du CEERA
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-            {objectives.map((objective, index) => (
-              <div key={index} className="bg-secondary/30 p-6 rounded-lg shadow-sm">
-                <div className="flex items-center mb-4">
-                  <div className="bg-ceera-orange/10 p-3 rounded-full mr-3">
-                    {objective.icon}
+          <Tabs defaultValue="toutes" className="w-full" onValueChange={setActiveTab}>
+            <div className="mb-6 flex justify-center">
+              <TabsList className="grid grid-cols-4 md:w-auto">
+                <TabsTrigger value="toutes">Toutes</TabsTrigger>
+                <TabsTrigger value="actualites">Actualités</TabsTrigger>
+                <TabsTrigger value="comptes-rendus">Comptes-rendus</TabsTrigger>
+                <TabsTrigger value="evenements">Événements</TabsTrigger>
+              </TabsList>
+            </div>
+            
+            <TabsContent value="toutes" className="mt-0">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredPosts.map((post) => (
+                  <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
+                    <div className="h-48 overflow-hidden">
+                      <img 
+                        src={post.image} 
+                        alt={post.title} 
+                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <div className="inline-block px-3 py-1 text-xs font-medium bg-ceera-orange/10 text-ceera-orange rounded-full mb-3">
+                        {post.category === "actualites" ? "Actualité" : 
+                         post.category === "comptes-rendus" ? "Compte-rendu" : "Événement"}
+                      </div>
+                      <h3 className="text-xl font-bold mb-3">{post.title}</h3>
+                      <p className="text-muted-foreground mb-4">{post.excerpt}</p>
+                      <div className="flex justify-between items-center text-sm">
+                        <div className="flex items-center">
+                          <Calendar size={14} className="mr-1 text-ceera-orange" />
+                          <span>{post.date}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Users size={14} className="mr-1 text-ceera-orange" />
+                          <span>{post.author}</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-bold">{objective.title}</h3>
-                </div>
-                <p className="text-muted-foreground">{objective.description}</p>
+                ))}
               </div>
+            </TabsContent>
+            
+            {["actualites", "comptes-rendus", "evenements"].map((category) => (
+              <TabsContent key={category} value={category} className="mt-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredPosts.map((post) => (
+                    <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
+                      <div className="h-48 overflow-hidden">
+                        <img 
+                          src={post.image} 
+                          alt={post.title} 
+                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                      <div className="p-6">
+                        <div className="inline-block px-3 py-1 text-xs font-medium bg-ceera-orange/10 text-ceera-orange rounded-full mb-3">
+                          {post.category === "actualites" ? "Actualité" : 
+                           post.category === "comptes-rendus" ? "Compte-rendu" : "Événement"}
+                        </div>
+                        <h3 className="text-xl font-bold mb-3">{post.title}</h3>
+                        <p className="text-muted-foreground mb-4">{post.excerpt}</p>
+                        <div className="flex justify-between items-center text-sm">
+                          <div className="flex items-center">
+                            <Calendar size={14} className="mr-1 text-ceera-orange" />
+                            <span>{post.date}</span>
+                          </div>
+                          <div className="flex items-center">
+                            <Users size={14} className="mr-1 text-ceera-orange" />
+                            <span>{post.author}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </TabsContent>
             ))}
-          </div>
+          </Tabs>
         </div>
       </section>
 
@@ -186,202 +238,40 @@ const Activities = () => {
             Restez informés des prochaines activités organisées par le CEERA et participez nombreux !
           </p>
           
-          <Tabs defaultValue="toutes" className="w-full">
-            <div className="mb-6 flex justify-center">
-              <TabsList className="grid grid-cols-5 md:w-auto">
-                <TabsTrigger value="toutes" onClick={() => setActiveTab("toutes")}>Toutes</TabsTrigger>
-                <TabsTrigger value="culturelles" onClick={() => setActiveTab("culturelles")}>Culturelles</TabsTrigger>
-                <TabsTrigger value="academiques" onClick={() => setActiveTab("academiques")}>Académiques</TabsTrigger>
-                <TabsTrigger value="sociales" onClick={() => setActiveTab("sociales")}>Sociales</TabsTrigger>
-                <TabsTrigger value="sportives" onClick={() => setActiveTab("sportives")}>Sportives</TabsTrigger>
-              </TabsList>
-            </div>
-            
-            <TabsContent value="toutes" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredEvents.map((event) => (
-                  <div key={event.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div className="h-48 overflow-hidden">
-                      <img 
-                        src={event.image} 
-                        alt={event.title} 
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                      />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {upcomingEvents.map((event) => (
+              <div key={event.id} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col md:flex-row">
+                <div className="md:w-1/3 h-48 md:h-auto overflow-hidden">
+                  <img 
+                    src={event.image} 
+                    alt={event.title} 
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="md:w-2/3 p-6">
+                  <div className="inline-block px-3 py-1 text-xs font-medium bg-ceera-orange/10 text-ceera-orange rounded-full mb-3">
+                    {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{event.title}</h3>
+                  <p className="text-muted-foreground mb-4">{event.description}</p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center">
+                      <Calendar size={16} className="mr-2 text-ceera-orange" />
+                      <span>{event.date}</span>
                     </div>
-                    <div className="p-6">
-                      <div className="inline-block px-3 py-1 text-xs font-medium bg-ceera-orange/10 text-ceera-orange rounded-full mb-3">
-                        {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
-                      </div>
-                      <h3 className="text-xl font-bold mb-3">{event.title}</h3>
-                      <p className="text-muted-foreground mb-4">{event.description}</p>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex items-center">
-                          <Calendar size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.date}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.time}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <MapPin size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.location}</span>
-                        </div>
-                      </div>
+                    <div className="flex items-center">
+                      <Clock size={16} className="mr-2 text-ceera-orange" />
+                      <span>{event.time}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <MapPin size={16} className="mr-2 text-ceera-orange" />
+                      <span>{event.location}</span>
                     </div>
                   </div>
-                ))}
+                </div>
               </div>
-            </TabsContent>
-            
-            <TabsContent value="culturelles" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredEvents.map((event) => (
-                  <div key={event.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div className="h-48 overflow-hidden">
-                      <img 
-                        src={event.image} 
-                        alt={event.title} 
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <div className="inline-block px-3 py-1 text-xs font-medium bg-ceera-orange/10 text-ceera-orange rounded-full mb-3">
-                        {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
-                      </div>
-                      <h3 className="text-xl font-bold mb-3">{event.title}</h3>
-                      <p className="text-muted-foreground mb-4">{event.description}</p>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex items-center">
-                          <Calendar size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.date}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.time}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <MapPin size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.location}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
-            
-            <TabsContent value="academiques" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredEvents.map((event) => (
-                  <div key={event.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div className="h-48 overflow-hidden">
-                      <img 
-                        src={event.image} 
-                        alt={event.title} 
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <div className="inline-block px-3 py-1 text-xs font-medium bg-ceera-orange/10 text-ceera-orange rounded-full mb-3">
-                        {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
-                      </div>
-                      <h3 className="text-xl font-bold mb-3">{event.title}</h3>
-                      <p className="text-muted-foreground mb-4">{event.description}</p>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex items-center">
-                          <Calendar size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.date}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.time}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <MapPin size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.location}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
-            
-            <TabsContent value="sociales" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredEvents.map((event) => (
-                  <div key={event.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div className="h-48 overflow-hidden">
-                      <img 
-                        src={event.image} 
-                        alt={event.title} 
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <div className="inline-block px-3 py-1 text-xs font-medium bg-ceera-orange/10 text-ceera-orange rounded-full mb-3">
-                        {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
-                      </div>
-                      <h3 className="text-xl font-bold mb-3">{event.title}</h3>
-                      <p className="text-muted-foreground mb-4">{event.description}</p>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex items-center">
-                          <Calendar size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.date}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.time}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <MapPin size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.location}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
-            
-            <TabsContent value="sportives" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredEvents.map((event) => (
-                  <div key={event.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div className="h-48 overflow-hidden">
-                      <img 
-                        src={event.image} 
-                        alt={event.title} 
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <div className="inline-block px-3 py-1 text-xs font-medium bg-ceera-orange/10 text-ceera-orange rounded-full mb-3">
-                        {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
-                      </div>
-                      <h3 className="text-xl font-bold mb-3">{event.title}</h3>
-                      <p className="text-muted-foreground mb-4">{event.description}</p>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex items-center">
-                          <Calendar size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.date}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.time}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <MapPin size={16} className="mr-2 text-ceera-orange" />
-                          <span>{event.location}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -454,9 +344,7 @@ const Activities = () => {
                   {activity.events.map((event, idx) => (
                     <li key={idx} className="flex items-start">
                       <div className="bg-ceera-orange/20 rounded-full p-1 mt-1 mr-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
+                        <FileText className="h-4 w-4 text-ceera-orange" />
                       </div>
                       <p>{event}</p>
                     </li>

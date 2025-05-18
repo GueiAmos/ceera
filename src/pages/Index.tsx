@@ -3,7 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import CardSection from '@/components/CardSection';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Activity, Users, BookOpen, Calendar, Award, Handshake, BookOpen as BookOpenIcon, FileText } from 'lucide-react';
+import { Activity, Users, BookOpen, Calendar, Award, Handshake, BookOpen as BookOpenIcon, FileText, Target } from 'lucide-react';
 
 const Index = () => {
   const featureCards = [
@@ -42,6 +42,39 @@ const Index = () => {
     },
   ];
 
+  const objectives = [
+    {
+      icon: <Target className="h-8 w-8 text-ceera-orange" />,
+      title: "Renforcement de l'engagement des membres",
+      description: "Augmenter la participation des membres aux événements et réunions en mettant en place des initiatives d'engagement."
+    },
+    {
+      icon: <Calendar className="h-8 w-8 text-ceera-orange" />,
+      title: "Événements diversifiés",
+      description: "Organiser au moins un événement majeur chaque trimestre pour promouvoir la cohésion et l'échange entre membres."
+    },
+    {
+      icon: <Users className="h-8 w-8 text-ceera-orange" />,
+      title: "Amélioration de la communication",
+      description: "Établir des canaux de communication clairs pour informer et mobiliser efficacement les membres."
+    },
+    {
+      icon: <Handshake className="h-8 w-8 text-ceera-orange" />,
+      title: "Partenariats stratégiques",
+      description: "Établir des collaborations avec d'autres associations, entreprises et institutions pour faciliter l'accès à des ressources."
+    },
+    {
+      icon: <Award className="h-8 w-8 text-ceera-orange" />,
+      title: "Formation et développement",
+      description: "Offrir des ateliers de formation sur des compétences utiles pour favoriser le développement personnel des membres."
+    },
+    {
+      icon: <BookOpenIcon className="h-8 w-8 text-ceera-orange" />,
+      title: "Soutien académique",
+      description: "Mettre en place un programme de tutorat où des étudiants plus avancés aident ceux qui rencontrent des difficultés."
+    }
+  ];
+
   return (
     <div>
       <HeroSection 
@@ -49,6 +82,7 @@ const Index = () => {
         subtitle="Créé le 3 février 2023 - Association apolitique, laïque et à but non lucratif"
         buttonText="Rejoignez-nous"
         buttonLink="/membership"
+        showLogo={true}
       />
 
       <section className="section bg-white">
@@ -198,10 +232,35 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="section bg-secondary/50">
+        <div className="container mx-auto">
+          <h2 className="section-title">Nos objectifs stratégiques</h2>
+          <p className="section-subtitle">
+            Le CEERA s'est fixé des objectifs ambitieux pour améliorer l'expérience de ses membres et contribuer au développement d'Agnibilékrou.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            {objectives.map((objective, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
+                <div className="flex items-center mb-4">
+                  <div className="bg-ceera-orange/10 p-3 rounded-full mr-3">
+                    {objective.icon}
+                  </div>
+                  <h3 className="text-lg font-bold">{objective.title}</h3>
+                </div>
+                <p className="text-muted-foreground">{objective.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <CardSection 
         title="Nos activités récentes" 
         subtitle="Découvrez les événements et initiatives organisés par notre collectif"
         cards={activityCards}
+        buttonText="Voir toutes nos activités"
+        buttonLink="/activities"
       />
 
       <section className="section bg-ceera-orange/10">

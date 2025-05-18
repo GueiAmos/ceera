@@ -10,6 +10,8 @@ import Activities from "./pages/Activities";
 import Membership from "./pages/Membership";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Gallery from "./pages/Gallery";
+import Team from "./pages/Team";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -30,6 +32,8 @@ const App = () => (
               <Route path="/activities" element={<Activities />} />
               <Route path="/membership" element={<Membership />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/team" element={<Team />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
