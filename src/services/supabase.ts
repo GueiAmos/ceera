@@ -1,11 +1,6 @@
 
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '@/integrations/supabase/client';
 import { Activity, ActivityImage } from '../models/Activity';
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export const getActivities = async (): Promise<Activity[]> => {
   const { data, error } = await supabase
