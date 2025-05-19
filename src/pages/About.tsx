@@ -2,6 +2,7 @@
 import HeroSection from '@/components/HeroSection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Target, Award, Users, UserPlus, Clock, Heart, FileText, Handshake } from 'lucide-react';
+
 const About = () => {
   const values = [{
     icon: <Heart className="h-8 w-8 text-ceera-orange" />,
@@ -37,11 +38,28 @@ const About = () => {
     question: "Comment adhérer au CEERA ?",
     answer: "Pour adhérer au CEERA, il faut payer la somme unique de 1000 FCFA comme droit d'adhésion. Cette somme donne droit à une carte de membre."
   }];
+  
   return <div>
       <HeroSection title="À propos du CEERA" subtitle="Découvrez notre histoire, notre mission et nos valeurs" backgroundImage="https://images.unsplash.com/photo-1472396961693-142e6e269027" showLogo={true} />
 
       <section className="section bg-white">
         <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-center mb-12">
+            <img 
+              src="/lovable-uploads/532a1231-eba2-4266-882d-eac4fa510703.png" 
+              alt="Logo CEERA" 
+              className="h-40 mb-8 md:mb-0 md:mr-10"
+            />
+            <div>
+              <h2 className="text-3xl font-bold mb-4 text-ceera-orange">Le CEERA, c'est...</h2>
+              <p className="text-lg font-medium">
+                Le Collectif des Élèves et Étudiants Ressortissants d'Agnibilékrou, une association apolitique, 
+                laïque et à but non lucratif dédiée au bien-être et à l'épanouissement des élèves et étudiants 
+                de notre région.
+              </p>
+            </div>
+          </div>
+          
           <div className="grid md:grid-cols-2 gap-10">
             <div>
               <h2 className="text-3xl font-bold mb-6">Notre histoire</h2>
@@ -207,15 +225,6 @@ const About = () => {
           </div>
         </div>
       </section>
-      
-      <div className="text-center py-10">
-        <img 
-          src="/lovable-uploads/532a1231-eba2-4266-882d-eac4fa510703.png" 
-          alt="Logo CEERA" 
-          className="h-24 mx-auto mb-6"
-        />
-        <p className="text-xl font-medium text-ceera-orange">CEERA - Pour l'unité et la solidarité</p>
-      </div>
     </div>;
 };
 export default About;

@@ -1,15 +1,16 @@
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import HeroSection from '@/components/HeroSection';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calendar, Clock, MapPin, Users, FileText } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users, FileText, ArrowRight } from 'lucide-react';
 
 const Activities = () => {
   const [activeTab, setActiveTab] = useState("toutes");
 
   const blogPosts = [
     {
-      id: 1,
+      id: "assemblee-generale-2025",
       title: "Compte-rendu de l'Assemblée Générale 2025",
       category: "comptes-rendus",
       date: "15 Février 2025",
@@ -18,7 +19,7 @@ const Activities = () => {
       image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
     },
     {
-      id: 2,
+      id: "journee-culturelle-agnibilekrou",
       title: "Célébration de la journée culturelle à Agnibilékrou",
       category: "evenements",
       date: "20 Mars 2025",
@@ -27,7 +28,7 @@ const Activities = () => {
       image: "https://images.unsplash.com/photo-1466442929976-97f336a657be"
     },
     {
-      id: 3,
+      id: "lancement-mentorat",
       title: "Lancement du programme de mentorat académique",
       category: "actualites",
       date: "10 Avril 2025",
@@ -36,7 +37,7 @@ const Activities = () => {
       image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
     },
     {
-      id: 4,
+      id: "pv-reunion-mensuelle",
       title: "Procès-verbal de la réunion mensuelle du bureau",
       category: "comptes-rendus",
       date: "5 Mai 2025",
@@ -45,7 +46,7 @@ const Activities = () => {
       image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb"
     },
     {
-      id: 5,
+      id: "reboisement-agnibilekrou",
       title: "Succès de l'opération de reboisement à Agnibilékrou",
       category: "actualites",
       date: "18 Juin 2025",
@@ -54,7 +55,7 @@ const Activities = () => {
       image: "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843"
     },
     {
-      id: 6,
+      id: "tournoi-sportif",
       title: "Bilan du tournoi sportif inter-écoles",
       category: "evenements",
       date: "25 Juillet 2025",
@@ -66,7 +67,7 @@ const Activities = () => {
 
   const upcomingEvents = [
     {
-      id: 1,
+      id: "journee-culturelle-annuelle",
       title: "Journée culturelle annuelle",
       date: "15 Août 2025",
       time: "10:00 - 18:00",
@@ -76,7 +77,7 @@ const Activities = () => {
       description: "Notre événement phare qui célèbre la richesse culturelle d'Agnibilékrou à travers des danses, chants, contes et expositions traditionnelles."
     },
     {
-      id: 2,
+      id: "tournoi-sportif",
       title: "Tournoi sportif inter-écoles",
       date: "22 Juillet 2025",
       time: "09:00 - 17:00",
@@ -86,7 +87,7 @@ const Activities = () => {
       description: "Un tournoi sportif réunissant les élèves de différentes écoles pour des compétitions de football, basketball, athlétisme et autres sports."
     },
     {
-      id: 3,
+      id: "mentorat-academique",
       title: "Session de mentorat académique",
       date: "10 Juin 2025",
       time: "14:00 - 17:00",
@@ -96,7 +97,7 @@ const Activities = () => {
       description: "Une session de mentorat où les étudiants universitaires partagent leur expérience et conseillent les élèves sur leurs choix d'études."
     },
     {
-      id: 4,
+      id: "campagne-sensibilisation",
       title: "Campagne de sensibilisation sanitaire",
       date: "5 Septembre 2025",
       time: "08:00 - 12:00",
@@ -161,7 +162,7 @@ const Activities = () => {
             <TabsContent value="toutes" className="mt-0">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredPosts.map((post) => (
-                  <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
+                  <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-all">
                     <div className="h-48 overflow-hidden">
                       <img 
                         src={post.image} 
@@ -186,6 +187,13 @@ const Activities = () => {
                           <span>{post.author}</span>
                         </div>
                       </div>
+                      <Link 
+                        to={`/activities/${post.id}`}
+                        className="inline-flex items-center text-ceera-orange hover:text-ceera-brown font-medium mt-4"
+                      >
+                        Lire la suite
+                        <ArrowRight size={16} className="ml-1" />
+                      </Link>
                     </div>
                   </div>
                 ))}
@@ -196,7 +204,7 @@ const Activities = () => {
               <TabsContent key={category} value={category} className="mt-0">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {filteredPosts.map((post) => (
-                    <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
+                    <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-all">
                       <div className="h-48 overflow-hidden">
                         <img 
                           src={post.image} 
@@ -221,6 +229,13 @@ const Activities = () => {
                             <span>{post.author}</span>
                           </div>
                         </div>
+                        <Link 
+                          to={`/activities/${post.id}`} 
+                          className="inline-flex items-center text-ceera-orange hover:text-ceera-brown font-medium mt-4"
+                        >
+                          Lire la suite
+                          <ArrowRight size={16} className="ml-1" />
+                        </Link>
                       </div>
                     </div>
                   ))}

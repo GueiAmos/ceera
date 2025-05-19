@@ -1,23 +1,25 @@
+
 import { Card, CardContent } from '@/components/ui/card';
 import HeroSection from '@/components/HeroSection';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Building, Users, FileText, Calendar, BookOpen, Heart, Handshake } from 'lucide-react';
+
 interface TeamMemberProps {
   name: string;
   position: string;
-  description?: string;
   image?: string;
 }
+
 interface SecretariatProps {
   title: string;
   description: string;
   icon: React.ReactNode;
   members: TeamMemberProps[];
 }
+
 const TeamMember = ({
   name,
-  position,
-  description
+  position
 }: TeamMemberProps) => {
   return <Card className="h-full hover:shadow-lg transition-shadow">
       <CardContent className="pt-6">
@@ -30,10 +32,10 @@ const TeamMember = ({
           <h3 className="text-xl font-bold text-center">{name}</h3>
           <p className="text-ceera-orange font-medium text-center">{position}</p>
         </div>
-        {description}
       </CardContent>
     </Card>;
 };
+
 const SecretariatSection = ({
   title,
   description,
@@ -53,32 +55,29 @@ const SecretariatSection = ({
       </div>
     </div>;
 };
+
 const Team = () => {
   const secretariats: SecretariatProps[] = [{
     title: "Présidence",
-    description: "Le Président est le chef du bureau exécutif. Il convoque les assemblées générales et les réunions, représente l'association dans tous les actes de la vie civile et est investi de tous les pouvoirs à cet effet.",
+    description: "La Présidence constitue l'autorité suprême du CEERA. Elle est chargée de définir les orientations stratégiques, de représenter l'association auprès des partenaires institutionnels et d'assurer la coordination générale des activités. La présidence veille au respect des statuts et règlements, supervise l'ensemble des secrétariats et prend les décisions finales concernant les initiatives importantes du collectif.",
     icon: <Users className="h-6 w-6 text-ceera-orange" />,
     members: [{
       name: "OUATTARA DRISSA",
-      position: "Président",
-      description: "Chef du bureau exécutif, il convoque les assemblées générales et les réunions du bureau exécutif, représente l'association dans tous les actes de la vie civile."
+      position: "Président"
     }, {
       name: "Ouattara Abran Rose",
-      position: "1er Vice-président",
-      description: "Seconde le Président dans l'exercice de ses fonctions et le remplace en cas d'absence ou d'empêchement. Chargé des relations extérieures."
+      position: "1er Vice-président"
     }, {
       name: "Ouattara Lamine",
-      position: "2ème Vice-président",
-      description: "Seconde le 1er vice-président et le remplace en cas d'absence ou d'empêchement. Chargé de tenir le cahier de secrétariat."
+      position: "2ème Vice-président"
     }]
   }, {
     title: "Secrétariat Général",
-    description: "Le Secrétaire Général est le responsable administratif de l'association. Il rédige les procès-verbaux des délibérations, assure la correspondance et garde les archives.",
+    description: "Le Secrétariat Général constitue la mémoire institutionnelle de l'association. En plus de rédiger les procès-verbaux des réunions, il gère la correspondance officielle, tient à jour l'ensemble des archives administratives et assure le suivi des décisions prises lors des assemblées générales. Il est également en charge de la documentation de tous les événements importants et sert d'interface administrative entre les différentes structures du CEERA.",
     icon: <FileText className="h-6 w-6 text-ceera-orange" />,
     members: [{
       name: "Kouamé Kouadio Célestin",
-      position: "Secrétaire Général",
-      description: "Responsable administratif de l'association, il rédige les procès-verbaux, assure les correspondances et garde les archives de l'association."
+      position: "Secrétaire Général"
     }, {
       name: "Akoua Awa",
       position: "Secrétaire Général Adjoint 1"
@@ -88,12 +87,11 @@ const Team = () => {
     }]
   }, {
     title: "Secrétariat à l'Organisation",
-    description: "Le Secrétaire à l'Organisation assure l'organisation matérielle pratique de toutes les manifestations du CEERA (réunions, rencontres, conférences, débats, colloques, AG).",
+    description: "Le Secrétariat à l'Organisation est la pierre angulaire de la mise en œuvre des activités du CEERA. Il élabore le calendrier des manifestations, coordonne la logistique de tous les événements, gère les ressources matérielles et assure le bon déroulement des assemblées générales et des différentes rencontres. Ce secrétariat travaille en étroite collaboration avec les autres secrétariats pour garantir l'exécution efficace de tous les projets du collectif.",
     icon: <Calendar className="h-6 w-6 text-ceera-orange" />,
     members: [{
       name: "Kamagaté Lamine",
-      position: "Secrétaire à l'Organisation",
-      description: "Assure l'organisation matérielle pratique de toutes les manifestations du CEERA (réunions, rencontres, conférences, débats, colloques, AG)."
+      position: "Secrétaire à l'Organisation"
     }, {
       name: "DIALLO ABOUBACAR",
       position: "Secrétaire à l'Organisation Adjoint 1"
@@ -103,12 +101,11 @@ const Team = () => {
     }]
   }, {
     title: "Secrétariat à la Communication",
-    description: "Le Secrétaire à la Communication est chargé de recueillir toutes les informations utiles intéressant directement ou indirectement le CEERA. Il est responsable des publications du collectif.",
+    description: "Le Secrétariat à la Communication joue un rôle crucial dans la visibilité et le rayonnement du CEERA. Il développe et met en œuvre la stratégie de communication du collectif, gère les réseaux sociaux, produit les supports de communication (affiches, flyers, vidéos), et assure les relations avec la presse. Ce secrétariat est également responsable de la diffusion des informations importantes auprès des membres et veille à la cohérence de l'image du CEERA.",
     icon: <FileText className="h-6 w-6 text-ceera-orange" />,
     members: [{
       name: "Kumassi Koffi Kié Jean-Marc",
-      position: "Secrétaire à la Communication",
-      description: "Chargé de recueillir toutes les informations utiles intéressant directement ou indirectement le CEERA et des publications du CEERA."
+      position: "Secrétaire à la Communication"
     }, {
       name: "Trinité Samson",
       position: "Secrétaire à la Communication Adjoint 1"
@@ -118,12 +115,11 @@ const Team = () => {
     }]
   }, {
     title: "Secrétariat aux Finances",
-    description: "Le Secrétaire aux Finances est chargé des affaires financières du CEERA. Il gère les versements et retraits mais ne peut faire ces mouvements qu'avec l'accord et la signature du Président.",
+    description: "Le Secrétariat aux Finances est le garant de la santé financière du CEERA. Il élabore le budget prévisionnel, collecte les cotisations, gère les dépenses, recherche des financements extérieurs et tient une comptabilité rigoureuse des ressources de l'association. Ce secrétariat établit également des rapports financiers réguliers, veille à la transparence des opérations financières et conseille la présidence sur les questions budgétaires.",
     icon: <FileText className="h-6 w-6 text-ceera-orange" />,
     members: [{
       name: "Palé Hibatoullah",
-      position: "Secrétaire aux Finances",
-      description: "Chargé des affaires financières du CEERA. Les versements et les retraits relèvent de ses attributions avec l'accord et la signature du Président."
+      position: "Secrétaire aux Finances"
     }, {
       name: "Ouattara Mariam",
       position: "Secrétaire aux Finances Adjoint 1"
@@ -133,12 +129,11 @@ const Team = () => {
     }]
   }, {
     title: "Secrétariat à la Culture et au Sport",
-    description: "Le Secrétaire à la Culture et au Sport est chargé des affaires culturelles et sportives. Il organise les événements culturels, sportifs et récréatifs et défend l'image du CEERA dans ces domaines.",
+    description: "Le Secrétariat à la Culture et au Sport est le moteur de la vie socioculturelle du collectif. Il conçoit et organise les événements culturels et sportifs, valorise le patrimoine culturel d'Agnibilékrou, encourage la pratique sportive parmi les membres, et favorise les échanges interculturels. Ce secrétariat joue un rôle essentiel dans le renforcement du sentiment d'appartenance et la cohésion entre les membres du CEERA à travers des activités ludiques et enrichissantes.",
     icon: <FileText className="h-6 w-6 text-ceera-orange" />,
     members: [{
       name: "Diallo Siriki Junior",
-      position: "Secrétaire à la Culture et au Sport",
-      description: "Chargé des affaires culturelles et sportives (sport, culture, séminaire, conférence, débats, colloques, forum, activités récréatives…)."
+      position: "Secrétaire à la Culture et au Sport"
     }, {
       name: "Ouattara Masara",
       position: "Secrétaire à la Culture et au Sport Adjoint 1"
@@ -148,12 +143,11 @@ const Team = () => {
     }]
   }, {
     title: "Secrétariat aux Affaires Sociales",
-    description: "Le Secrétaire aux Affaires Sociales est chargé des problèmes de santé des élèves et étudiants, ainsi que de leurs problèmes sociaux (logements, bourses, restauration, transport).",
+    description: "Le Secrétariat aux Affaires Sociales est le cœur solidaire du CEERA. Il identifie les besoins sociaux des membres, apporte une assistance en cas de difficultés (maladie, décès d'un proche), facilite l'accès aux services essentiels (logement, restauration), et organise des actions de soutien collectif. Ce secrétariat est particulièrement attentif aux situations de précarité et met en œuvre des mécanismes d'entraide pour renforcer la solidarité au sein du collectif.",
     icon: <Heart className="h-6 w-6 text-ceera-orange" />,
     members: [{
       name: "Ouattara Ibrahim",
-      position: "Secrétaire aux Affaires Sociales",
-      description: "Chargé des problèmes de santé des élèves et des étudiants. Responsable des problèmes sociaux (logements, bourses, restaurations, transports…)."
+      position: "Secrétaire aux Affaires Sociales"
     }, {
       name: "Fofana Salimata",
       position: "Secrétaire aux Affaires Sociales Adjoint 1"
@@ -163,12 +157,11 @@ const Team = () => {
     }]
   }, {
     title: "Secrétariat aux Affaires Académiques",
-    description: "Le Secrétaire aux Affaires Académiques est chargé des questions scolaires et académiques comme les inscriptions, la scolarité, les examens, les orientations et veille aux droits et devoirs des élèves et étudiants.",
+    description: "Le Secrétariat aux Affaires Académiques est le pilier du développement intellectuel des membres. Il organise des sessions de soutien scolaire et universitaire, informe sur les opportunités d'études et de bourses, veille au respect des droits des étudiants, et met en place des formations complémentaires. Ce secrétariat travaille à l'amélioration des performances académiques des membres et à leur orientation vers les filières les plus adaptées à leurs profils.",
     icon: <BookOpen className="h-6 w-6 text-ceera-orange" />,
     members: [{
       name: "Geï Amos",
-      position: "Secrétaire aux Affaires Académiques",
-      description: "Chargé des affaires scolaires et académiques (droits et devoirs des élèves et étudiants, fonctionnement du système éducatif)."
+      position: "Secrétaire aux Affaires Académiques"
     }, {
       name: "Pini Léontine",
       position: "Secrétaire aux Affaires Académiques Adjoint 1"
@@ -178,12 +171,11 @@ const Team = () => {
     }]
   }, {
     title: "Secrétariat à l'Environnement",
-    description: "Le Secrétaire à l'Environnement et au Développement Durable est chargé de la gestion saine et durable de l'environnement et du cadre de vie des élèves et étudiants.",
+    description: "Le Secrétariat à l'Environnement porte la vision écologique du CEERA. Il sensibilise les membres aux enjeux environnementaux, organise des actions concrètes de protection de l'environnement (reboisement, nettoyage), promeut les pratiques écologiques responsables, et développe des partenariats avec des organismes spécialisés. Ce secrétariat joue un rôle crucial dans l'engagement du collectif pour la préservation de l'environnement d'Agnibilékrou.",
     icon: <FileText className="h-6 w-6 text-ceera-orange" />,
     members: [{
       name: "Ouattara Brou Prince Blanchard",
-      position: "Secrétaire à l'Environnement",
-      description: "Chargé de la gestion saine et durable de l'environnement et du cadre de vie des élèves et étudiants."
+      position: "Secrétaire à l'Environnement"
     }, {
       name: "Ouattara Bakary",
       position: "Secrétaire à l'Environnement Adjoint 1"
@@ -193,12 +185,11 @@ const Team = () => {
     }]
   }, {
     title: "Secrétariat à l'Insertion Professionnelle",
-    description: "Le Secrétaire à l'Insertion Professionnelle est chargé de trouver des stages et emplois pour les membres du Collectif. Il établit des partenariats avec des entreprises pour faciliter l'insertion des élèves et étudiants.",
+    description: "Le Secrétariat à l'Insertion Professionnelle est la passerelle vers le monde du travail. Il développe un réseau de partenaires professionnels, identifie des opportunités de stages et d'emplois, organise des ateliers de préparation à l'emploi (CV, entretiens), et accompagne les membres dans leur transition vers la vie active. Ce secrétariat travaille à faciliter l'intégration professionnelle des membres du CEERA et à renforcer leur employabilité.",
     icon: <Handshake className="h-6 w-6 text-ceera-orange" />,
     members: [{
       name: "Kambou Ollo",
-      position: "Secrétaire à l'Insertion Professionnelle",
-      description: "Tenu de trouver des stages et/ou emplois pour les membres du Collectif. Mandaté pour trouver des entreprises et cabinets pour l'insertion des membres."
+      position: "Secrétaire à l'Insertion Professionnelle"
     }, {
       name: "Ouattara Amie",
       position: "Secrétaire à l'Insertion Professionnelle Adjoint 1"
@@ -208,12 +199,11 @@ const Team = () => {
     }]
   }, {
     title: "Commissariat aux Comptes",
-    description: "Les Commissaires aux Comptes contrôlent la gestion financière du bureau exécutif, examinent les comptes annuels et dressent un rapport spécial à l'Assemblée Générale. Ils peuvent vérifier l'état de la caisse à tout moment.",
+    description: "Le Commissariat aux Comptes est le garant de la transparence financière du CEERA. Il procède à des audits réguliers des comptes, vérifie la conformité des dépenses avec les décisions prises, évalue la pertinence des choix financiers, et présente des rapports indépendants lors des assemblées générales. Cette structure autonome joue un rôle essentiel dans la bonne gouvernance de l'association et la confiance des membres.",
     icon: <FileText className="h-6 w-6 text-ceera-orange" />,
     members: [{
       name: "YAO KOUADIO HENRI-JOEL",
-      position: "Commissaire aux Comptes",
-      description: "Chargé de contrôler la gestion financière du bureau exécutif et d'examiner et donner un avis sur la politique financière de l'association."
+      position: "Commissaire aux Comptes"
     }, {
       name: "KOUASSI KOFFI ADAMA",
       position: "Commissaire aux Comptes Adjoint 1"

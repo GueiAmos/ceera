@@ -1,14 +1,14 @@
 
 import HeroSection from '@/components/HeroSection';
 import ContactForm from '@/components/ContactForm';
-import { MapPin, Mail, Phone, Clock, Facebook, MessageCircle } from 'lucide-react';
+import { MapPin, Mail, Phone, Clock, Facebook, MessageCircle, Building, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Contact = () => {
   const contactInfo = [
     {
-      icon: <MapPin className="h-10 w-10 text-ceera-orange" />,
-      title: "Adresse",
+      icon: <Building className="h-10 w-10 text-ceera-orange" />,
+      title: "Siège",
       details: "Siège du CEERA, Abidjan, Côte d'Ivoire\nBase CEERA-BOUAKÉ, Bouaké, Côte d'Ivoire"
     },
     {
@@ -18,8 +18,8 @@ const Contact = () => {
     },
     {
       icon: <Phone className="h-10 w-10 text-ceera-orange" />,
-      title: "Téléphone",
-      details: "+225 01 02 76 14 11\n+225 07 69 88 86 15\n+225 07 69 96 92 25"
+      title: "Standard téléphonique",
+      details: "+225 01 02 76 14 11"
     },
     {
       icon: <Facebook className="h-10 w-10 text-ceera-orange" />,
@@ -28,24 +28,21 @@ const Contact = () => {
     }
   ];
 
-  const teams = [
+  const departments = [
     {
-      name: "OUATTARA DRISSA",
-      role: "Président",
-      email: "contact@ceera.org",
-      phone: "+225 07 69 88 86 15"
+      title: "Secrétariat Général",
+      description: "Pour toute question administrative et correspondance officielle.",
+      email: "sg@ceera.org"
     },
     {
-      name: "Ouattara Abran Rose",
-      role: "1er Vice-Président",
-      email: "vicepresident1@ceera.org",
-      phone: "+225 01 02 76 14 11"
+      title: "Service Communication",
+      description: "Pour les demandes médias et relations presse.",
+      email: "communication@ceera.org"
     },
     {
-      name: "Kouamé Kouadio Célestin",
-      role: "Secrétaire Général",
-      email: "sg@ceera.org",
-      phone: "+225 07 69 96 92 25"
+      title: "Affaires Académiques",
+      description: "Pour les questions liées aux études et à l'orientation.",
+      email: "academique@ceera.org"
     }
   ];
 
@@ -58,16 +55,16 @@ const Contact = () => {
         showLogo={true}
       />
 
-      <section className="section bg-white">
+      <section className="section bg-gradient-to-r from-ceera-orange/10 to-white">
         <div className="container mx-auto">
-          <h2 className="section-title">Nos coordonnées</h2>
+          <h2 className="section-title">Comment nous joindre</h2>
           <p className="section-subtitle">
             N'hésitez pas à nous contacter par l'un des moyens ci-dessous ou en remplissant le formulaire.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {contactInfo.map((info, index) => (
-              <div key={index} className="bg-secondary/50 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
                 <div className="flex justify-center mb-4">{info.icon}</div>
                 <h3 className="text-xl font-bold mb-3">{info.title}</h3>
                 <p className="text-muted-foreground whitespace-pre-line">{info.details}</p>
@@ -77,7 +74,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="section bg-secondary/50">
+      <section className="section bg-white">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-10">
             <div>
@@ -89,50 +86,36 @@ const Contact = () => {
               <ContactForm />
             </div>
             <div>
-              <h2 className="text-3xl font-bold mb-6">Bureau exécutif</h2>
+              <h2 className="text-3xl font-bold mb-6">Nos services</h2>
               <p className="mb-6">
-                Vous pouvez également contacter directement les membres de notre bureau exécutif pour des questions spécifiques.
+                Le CEERA dispose de plusieurs services spécialisés pour répondre à vos besoins spécifiques. N'hésitez pas à contacter directement le service concerné.
               </p>
               
               <div className="space-y-6">
-                {teams.map((member, index) => (
-                  <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                    <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                    <p className="text-ceera-orange mb-3">{member.role}</p>
-                    <div className="space-y-2 text-muted-foreground">
-                      <div className="flex items-center">
-                        <Mail size={16} className="mr-2" />
-                        <span>{member.email}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Phone size={16} className="mr-2" />
-                        <span>{member.phone}</span>
-                      </div>
+                {departments.map((dept, index) => (
+                  <div key={index} className="bg-secondary/20 p-6 rounded-lg shadow-sm">
+                    <h3 className="text-xl font-bold mb-1">{dept.title}</h3>
+                    <p className="text-muted-foreground mb-3">{dept.description}</p>
+                    <div className="flex items-center text-ceera-orange">
+                      <Mail size={16} className="mr-2" />
+                      <span>{dept.email}</span>
                     </div>
                   </div>
                 ))}
               </div>
               
-              <div className="mt-6 p-6 bg-ceera-orange/10 rounded-lg border border-ceera-orange/20">
+              <div className="mt-8 p-6 bg-ceera-orange/10 rounded-lg border border-ceera-orange/20">
                 <h3 className="text-lg font-bold mb-3 flex items-center">
-                  <MessageCircle size={20} className="mr-2 text-ceera-orange" />
-                  Rejoignez-nous
+                  <Users size={20} className="mr-2 text-ceera-orange" />
+                  Bureau Exécutif
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  Vous pouvez également nous contacter et suivre nos activités sur nos réseaux sociaux :
+                  Pour contacter les membres du bureau exécutif ou en savoir plus sur notre organisation, consultez notre page dédiée à l'équipe du CEERA.
                 </p>
-                <ul className="space-y-2">
-                  <li className="flex items-center">
-                    <Facebook size={16} className="mr-2 text-ceera-orange" />
-                    <span>CERA.Collectif des étudiants ressortissants d'Agnibilékrou</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 448 512" fill="currentColor" className="mr-2 text-ceera-orange">
-                      <path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/>
-                    </svg>
-                    <span>CEERA LIFE</span>
-                  </li>
-                </ul>
+                <Link to="/team" className="inline-flex items-center text-ceera-orange hover:underline">
+                  Découvrir notre équipe 
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1"><path d="m9 18 6-6-6-6"/></svg>
+                </Link>
               </div>
             </div>
           </div>
@@ -161,10 +144,15 @@ const Contact = () => {
         <div className="container mx-auto">
           <h2 className="section-title">Où nous trouver</h2>
           <div className="max-w-4xl mx-auto">
-            <div className="aspect-video rounded-lg overflow-hidden">
+            <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
               {/* Placeholder for Google Map iframe */}
-              <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                <p className="text-gray-600">Le CEERA dispose d'un siège à Abidjan et d'une base à Bouaké</p>
+              <div className="w-full h-full bg-gray-100 flex flex-col items-center justify-center p-8">
+                <Building className="h-16 w-16 text-ceera-orange mb-4" />
+                <h3 className="text-xl font-bold mb-2">Nos localisations</h3>
+                <p className="text-center max-w-md">
+                  Le CEERA dispose d'un siège à Abidjan et d'une base à Bouaké.
+                  Nous prévoyons de nous étendre dans toutes les principales villes universitaires de Côte d'Ivoire.
+                </p>
               </div>
             </div>
             
