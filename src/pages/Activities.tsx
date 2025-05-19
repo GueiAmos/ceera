@@ -1,70 +1,62 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import HeroSection from '@/components/HeroSection';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Calendar, Clock, MapPin, Users, FileText, ArrowRight } from 'lucide-react';
+import { Activity } from '@/models/Activity';
+import { getActivities } from '@/services/supabase';
+import { useQuery } from '@tanstack/react-query';
+import { Skeleton } from '@/components/ui/skeleton';
+import { useToast } from '@/components/ui/use-toast';
 
 const Activities = () => {
   const [activeTab, setActiveTab] = useState("toutes");
+  const { toast } = useToast();
+  
+  const { data: activities, isLoading, error } = useQuery({
+    queryKey: ['activities'],
+    queryFn: getActivities
+  });
 
-  const blogPosts = [
+  useEffect(() => {
+    if (error) {
+      toast({
+        title: "Erreur",
+        description: "Impossible de charger les activités. Veuillez réessayer plus tard.",
+        variant: "destructive"
+      });
+      console.error("Error loading activities:", error);
+    }
+  }, [error, toast]);
+
+  const filteredActivities = activeTab === "toutes" 
+    ? activities 
+    : activities?.filter(activity => activity.category === activeTab);
+  
+  // Past activities (hardcoded for now)
+  const pastActivities = [
     {
-      id: "assemblee-generale-2025",
-      title: "Compte-rendu de l'Assemblée Générale 2025",
-      category: "comptes-rendus",
-      date: "15 Février 2025",
-      author: "Secrétariat Général",
-      excerpt: "L'Assemblée Générale annuelle du CEERA s'est tenue le 15 février 2025 à Abidjan. Les membres du bureau exécutif ont présenté le bilan de l'année écoulée et les projets pour 2025.",
-      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
+      year: "2024",
+      events: [
+        "Organisation d'une campagne de reboisement dans la région d'Agnibilékrou",
+        "Mise en place d'un programme de tutorat pour les élèves en difficulté",
+        "Collecte de fonds pour la rénovation d'une école primaire",
+        "Tournoi sportif inter-écoles à Agnibilékrou"
+      ]
     },
     {
-      id: "journee-culturelle-agnibilekrou",
-      title: "Célébration de la journée culturelle à Agnibilékrou",
-      category: "evenements",
-      date: "20 Mars 2025",
-      author: "Secrétariat à la Culture",
-      excerpt: "La journée culturelle du CEERA a été un véritable succès avec plus de 200 participants. Danses traditionnelles, contes et dégustation de plats locaux étaient au programme.",
-      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be"
-    },
-    {
-      id: "lancement-mentorat",
-      title: "Lancement du programme de mentorat académique",
-      category: "actualites",
-      date: "10 Avril 2025",
-      author: "Secrétariat aux Affaires Académiques",
-      excerpt: "Le CEERA lance un nouveau programme de mentorat pour aider les étudiants dans leur parcours universitaire. Les mentors expérimentés partageront leurs connaissances et conseils.",
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
-    },
-    {
-      id: "pv-reunion-mensuelle",
-      title: "Procès-verbal de la réunion mensuelle du bureau",
-      category: "comptes-rendus",
-      date: "5 Mai 2025",
-      author: "Secrétariat Général",
-      excerpt: "Le bureau exécutif s'est réuni le 5 mai pour discuter des projets en cours et planifier les activités du trimestre. Plusieurs décisions importantes ont été prises.",
-      image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb"
-    },
-    {
-      id: "reboisement-agnibilekrou",
-      title: "Succès de l'opération de reboisement à Agnibilékrou",
-      category: "actualites",
-      date: "18 Juin 2025",
-      author: "Secrétariat à l'Environnement",
-      excerpt: "Plus de 500 arbres ont été plantés lors de l'opération de reboisement organisée par le CEERA à Agnibilékrou. Une action concrète pour l'environnement.",
-      image: "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843"
-    },
-    {
-      id: "tournoi-sportif",
-      title: "Bilan du tournoi sportif inter-écoles",
-      category: "evenements",
-      date: "25 Juillet 2025",
-      author: "Secrétariat à la Culture et au Sport",
-      excerpt: "Le tournoi sportif inter-écoles organisé par le CEERA a réuni plus de 10 établissements scolaires d'Agnibilékrou. L'école primaire Saint-Jean a remporté le tournoi de football.",
-      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22"
+      year: "2023",
+      events: [
+        "Célébration de la journée culturelle annuelle",
+        "Don de fournitures scolaires aux élèves défavorisés",
+        "Conférence sur l'orientation professionnelle",
+        "Organisation d'un hackathon pour les jeunes développeurs"
+      ]
     }
   ];
 
+  // Upcoming events (hardcoded or could be filtered from activities)
   const upcomingEvents = [
     {
       id: "journee-culturelle-annuelle",
@@ -108,31 +100,6 @@ const Activities = () => {
     }
   ];
 
-  const pastActivities = [
-    {
-      year: "2024",
-      events: [
-        "Organisation d'une campagne de reboisement dans la région d'Agnibilékrou",
-        "Mise en place d'un programme de tutorat pour les élèves en difficulté",
-        "Collecte de fonds pour la rénovation d'une école primaire",
-        "Tournoi sportif inter-écoles à Agnibilékrou"
-      ]
-    },
-    {
-      year: "2023",
-      events: [
-        "Célébration de la journée culturelle annuelle",
-        "Don de fournitures scolaires aux élèves défavorisés",
-        "Conférence sur l'orientation professionnelle",
-        "Organisation d'un hackathon pour les jeunes développeurs"
-      ]
-    }
-  ];
-
-  const filteredPosts = activeTab === "toutes" 
-    ? blogPosts 
-    : blogPosts.filter(post => post.category === activeTab);
-
   return (
     <div>
       <HeroSection 
@@ -160,86 +127,32 @@ const Activities = () => {
             </div>
             
             <TabsContent value="toutes" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredPosts.map((post) => (
-                  <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-all">
-                    <div className="h-48 overflow-hidden">
-                      <img 
-                        src={post.image} 
-                        alt={post.title} 
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <div className="inline-block px-3 py-1 text-xs font-medium bg-ceera-orange/10 text-ceera-orange rounded-full mb-3">
-                        {post.category === "actualites" ? "Actualité" : 
-                         post.category === "comptes-rendus" ? "Compte-rendu" : "Événement"}
-                      </div>
-                      <h3 className="text-xl font-bold mb-3">{post.title}</h3>
-                      <p className="text-muted-foreground mb-4">{post.excerpt}</p>
-                      <div className="flex justify-between items-center text-sm">
-                        <div className="flex items-center">
-                          <Calendar size={14} className="mr-1 text-ceera-orange" />
-                          <span>{post.date}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Users size={14} className="mr-1 text-ceera-orange" />
-                          <span>{post.author}</span>
-                        </div>
-                      </div>
-                      <Link 
-                        to={`/activities/${post.id}`}
-                        className="inline-flex items-center text-ceera-orange hover:text-ceera-brown font-medium mt-4"
-                      >
-                        Lire la suite
-                        <ArrowRight size={16} className="ml-1" />
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              {isLoading ? (
+                <ActivitySkeletonList />
+              ) : activities && activities.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredActivities?.map((activity) => (
+                    <ActivityCard key={activity.id} activity={activity} />
+                  ))}
+                </div>
+              ) : (
+                <p className="text-center py-10">Aucune activité n'a été trouvée.</p>
+              )}
             </TabsContent>
             
             {["actualites", "comptes-rendus", "evenements"].map((category) => (
               <TabsContent key={category} value={category} className="mt-0">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredPosts.map((post) => (
-                    <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-all">
-                      <div className="h-48 overflow-hidden">
-                        <img 
-                          src={post.image} 
-                          alt={post.title} 
-                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                        />
-                      </div>
-                      <div className="p-6">
-                        <div className="inline-block px-3 py-1 text-xs font-medium bg-ceera-orange/10 text-ceera-orange rounded-full mb-3">
-                          {post.category === "actualites" ? "Actualité" : 
-                           post.category === "comptes-rendus" ? "Compte-rendu" : "Événement"}
-                        </div>
-                        <h3 className="text-xl font-bold mb-3">{post.title}</h3>
-                        <p className="text-muted-foreground mb-4">{post.excerpt}</p>
-                        <div className="flex justify-between items-center text-sm">
-                          <div className="flex items-center">
-                            <Calendar size={14} className="mr-1 text-ceera-orange" />
-                            <span>{post.date}</span>
-                          </div>
-                          <div className="flex items-center">
-                            <Users size={14} className="mr-1 text-ceera-orange" />
-                            <span>{post.author}</span>
-                          </div>
-                        </div>
-                        <Link 
-                          to={`/activities/${post.id}`} 
-                          className="inline-flex items-center text-ceera-orange hover:text-ceera-brown font-medium mt-4"
-                        >
-                          Lire la suite
-                          <ArrowRight size={16} className="ml-1" />
-                        </Link>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                {isLoading ? (
+                  <ActivitySkeletonList />
+                ) : filteredActivities && filteredActivities.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {filteredActivities.map((activity) => (
+                      <ActivityCard key={activity.id} activity={activity} />
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-center py-10">Aucune activité n'a été trouvée dans cette catégorie.</p>
+                )}
               </TabsContent>
             ))}
           </Tabs>
@@ -316,6 +229,72 @@ const Activities = () => {
           </div>
         </div>
       </section>
+    </div>
+  );
+};
+
+interface ActivityCardProps {
+  activity: Activity;
+}
+
+const ActivityCard = ({ activity }: ActivityCardProps) => {
+  return (
+    <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-all">
+      <div className="h-48 overflow-hidden">
+        <img 
+          src={activity.coverImage} 
+          alt={activity.title} 
+          className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+        />
+      </div>
+      <div className="p-6">
+        <div className="inline-block px-3 py-1 text-xs font-medium bg-ceera-orange/10 text-ceera-orange rounded-full mb-3">
+          {activity.category === "actualites" ? "Actualité" : 
+           activity.category === "comptes-rendus" ? "Compte-rendu" : "Événement"}
+        </div>
+        <h3 className="text-xl font-bold mb-3">{activity.title}</h3>
+        <p className="text-muted-foreground mb-4">{activity.excerpt}</p>
+        <div className="flex justify-between items-center text-sm">
+          <div className="flex items-center">
+            <Calendar size={14} className="mr-1 text-ceera-orange" />
+            <span>{activity.date}</span>
+          </div>
+          <div className="flex items-center">
+            <Users size={14} className="mr-1 text-ceera-orange" />
+            <span>{activity.author}</span>
+          </div>
+        </div>
+        <Link 
+          to={`/activities/${activity.id}`}
+          className="inline-flex items-center text-ceera-orange hover:text-ceera-brown font-medium mt-4"
+        >
+          Lire la suite
+          <ArrowRight size={16} className="ml-1" />
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+const ActivitySkeletonList = () => {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[1, 2, 3, 4, 5, 6].map(i => (
+        <div key={i} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
+          <Skeleton className="h-48 w-full" />
+          <div className="p-6">
+            <Skeleton className="h-4 w-20 mb-3" />
+            <Skeleton className="h-6 w-full mb-3" />
+            <Skeleton className="h-4 w-full mb-2" />
+            <Skeleton className="h-4 w-[80%] mb-4" />
+            <div className="flex justify-between items-center">
+              <Skeleton className="h-4 w-20" />
+              <Skeleton className="h-4 w-20" />
+            </div>
+            <Skeleton className="h-4 w-24 mt-4" />
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
