@@ -13,7 +13,20 @@ export const getActivities = async (): Promise<Activity[]> => {
     throw error;
   }
   
-  return data || [];
+  // Transform the data to match the Activity interface
+  return (data || []).map(item => ({
+    id: item.id,
+    title: item.title,
+    date: item.date,
+    time: item.time,
+    location: item.location,
+    author: item.author,
+    category: item.category as 'actualites' | 'comptes-rendus' | 'evenements',
+    excerpt: item.excerpt,
+    content: item.content,
+    coverImage: item.coverimage, // Note: mapping coverimage to coverImage
+    images: [] // Initialize with empty array, will be populated when needed
+  }));
 };
 
 export const getActivityById = async (id: string): Promise<Activity | null> => {
@@ -35,7 +48,7 @@ export const getActivityById = async (id: string): Promise<Activity | null> => {
   const { data: images, error: imagesError } = await supabase
     .from('activity_images')
     .select('*')
-    .eq('activityId', id)
+    .eq('activityid', id)
     .order('created_at', { ascending: true });
     
   if (imagesError) {
@@ -43,10 +56,28 @@ export const getActivityById = async (id: string): Promise<Activity | null> => {
     throw imagesError;
   }
   
+  // Transform the images to match the ActivityImage interface
+  const formattedImages = (images || []).map(img => ({
+    id: img.id,
+    activityId: img.activityid,
+    src: img.src,
+    caption: img.caption,
+    created_at: img.created_at
+  }));
+  
   // Combine the activity with its images
   return {
-    ...activity,
-    images: images || []
+    id: activity.id,
+    title: activity.title,
+    date: activity.date,
+    time: activity.time,
+    location: activity.location,
+    author: activity.author,
+    category: activity.category as 'actualites' | 'comptes-rendus' | 'evenements',
+    excerpt: activity.excerpt,
+    content: activity.content,
+    coverImage: activity.coverimage,
+    images: formattedImages
   };
 };
 
@@ -54,7 +85,7 @@ export const getActivityImages = async (activityId: string): Promise<ActivityIma
   const { data, error } = await supabase
     .from('activity_images')
     .select('*')
-    .eq('activityId', activityId)
+    .eq('activityid', activityId)
     .order('created_at', { ascending: true });
     
   if (error) {
@@ -62,5 +93,12 @@ export const getActivityImages = async (activityId: string): Promise<ActivityIma
     throw error;
   }
   
-  return data || [];
+  // Transform the data to match the ActivityImage interface
+  return (data || []).map(img => ({
+    id: img.id,
+    activityId: img.activityid,
+    src: img.src,
+    caption: img.caption,
+    created_at: img.created_at
+  }));
 };
