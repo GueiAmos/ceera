@@ -1,3 +1,4 @@
+
 import HeroSection from '@/components/HeroSection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Target, Award, Users, UserPlus, Clock, Heart, FileText, Handshake } from 'lucide-react';
@@ -19,139 +20,7 @@ const About = () => {
     title: "Engagement",
     description: "Nous nous engageons activement pour le développement de notre communauté et de notre région."
   }];
-  const executiveStaff = [{
-    role: "Présidence",
-    members: [{
-      position: "Président",
-      name: "OUATTARA DRISSA"
-    }, {
-      position: "1er Vice-Président",
-      name: "Ouattara Abran Rose"
-    }, {
-      position: "2ème Vice-Président",
-      name: "Ouattara Lamine"
-    }]
-  }, {
-    role: "Secrétariat Général",
-    members: [{
-      position: "Secrétaire Général",
-      name: "Kouamé Kouadio Célestin"
-    }, {
-      position: "Adjoint 1",
-      name: "Akoua Awa"
-    }, {
-      position: "Adjoint 2",
-      name: "ATTA Yao Vital"
-    }]
-  }, {
-    role: "Secrétariat à l'Organisation",
-    members: [{
-      position: "Secrétaire à l'Organisation",
-      name: "Kamagaté Lamine"
-    }, {
-      position: "Adjoint 1",
-      name: "DIALLO ABOUBACAR"
-    }, {
-      position: "Adjoint 2",
-      name: "AIGNON Philipe"
-    }]
-  }, {
-    role: "Secrétariat à la Communication",
-    members: [{
-      position: "Secrétaire à la Communication",
-      name: "Kumassi Koffi Kié Jean-Marc"
-    }, {
-      position: "Adjoint 1",
-      name: "Trinité Samson"
-    }, {
-      position: "Adjoint 2",
-      name: "Kouadio Donatien"
-    }]
-  }, {
-    role: "Secrétariat aux Finances",
-    members: [{
-      position: "Secrétaire aux Finances",
-      name: "Palé Hibatoullah"
-    }, {
-      position: "Adjoint 1",
-      name: "Ouattara Mariam"
-    }, {
-      position: "Adjoint 2",
-      name: "Kamagaté Sania"
-    }]
-  }, {
-    role: "Secrétariat à la Culture et au Sport",
-    members: [{
-      position: "Secrétaire à la Culture et au Sport",
-      name: "Diallo Siriki Junior"
-    }, {
-      position: "Adjoint 1",
-      name: "Ouattara Masara"
-    }, {
-      position: "Adjoint 2",
-      name: "Ouattara Yaya"
-    }]
-  }, {
-    role: "Secrétariat aux Affaires Sociales",
-    members: [{
-      position: "Secrétaire aux Affaires Sociales",
-      name: "Ouattara Ibrahim"
-    }, {
-      position: "Adjoint 1",
-      name: "Fofana Salimata"
-    }, {
-      position: "Adjoint 2",
-      name: "Diallo Aïcha"
-    }]
-  }, {
-    role: "Secrétariat aux Affaires Académiques",
-    members: [{
-      position: "Secrétaire aux Affaires Académiques",
-      name: "Geï Amos"
-    }, {
-      position: "Adjoint 1",
-      name: "Pini Léontine"
-    }, {
-      position: "Adjoint 2",
-      name: "Traoré Ramdé Kadidjatou"
-    }]
-  }, {
-    role: "Secrétariat à l'Environnement et au Développement Durable",
-    members: [{
-      position: "Secrétaire à l'Environnement",
-      name: "Ouattara Brou Prince Blanchard"
-    }, {
-      position: "Adjoint 1",
-      name: "Ouattara Bakary"
-    }, {
-      position: "Adjoint 2",
-      name: "Blendou Ange Mauricette"
-    }]
-  }, {
-    role: "Secrétariat à l'Insertion Professionnelle et à l'Entrepreneuriat",
-    members: [{
-      position: "Secrétaire à l'Insertion Professionnelle",
-      name: "Kambou Ollo"
-    }, {
-      position: "Adjoint 1",
-      name: "Ouattara Amie"
-    }, {
-      position: "Adjoint 2",
-      name: "Boko Ama Valentine"
-    }]
-  }, {
-    role: "Commissariat aux Comptes",
-    members: [{
-      position: "Commissaire aux Comptes",
-      name: "YAO KOUADIO HENRI-JOEL"
-    }, {
-      position: "Adjoint 1",
-      name: "KOUASSI KOFFI ADAMA"
-    }, {
-      position: "Adjoint 2",
-      name: "ADOU ANOH JONAS"
-    }]
-  }];
+  
   const faqs = [{
     question: "Qui peut devenir membre du CEERA ?",
     answer: "Peuvent adhérer à l'association toutes personnes volontaires, ayant le statut d'élève ou étudiant, quel que soit le lieu où cette personne sera orientée. Il faut obligatoirement être un ressortissant d'Agnibilékrou."
@@ -169,7 +38,7 @@ const About = () => {
     answer: "Pour adhérer au CEERA, il faut payer la somme unique de 1000 FCFA comme droit d'adhésion. Cette somme donne droit à une carte de membre."
   }];
   return <div>
-      <HeroSection title="À propos du CEERA" subtitle="Découvrez notre histoire, notre mission et nos valeurs" backgroundImage="https://images.unsplash.com/photo-1472396961693-142e6e269027" />
+      <HeroSection title="À propos du CEERA" subtitle="Découvrez notre histoire, notre mission et nos valeurs" backgroundImage="https://images.unsplash.com/photo-1472396961693-142e6e269027" showLogo={true} />
 
       <section className="section bg-white">
         <div className="container mx-auto">
@@ -289,56 +158,33 @@ const About = () => {
         </div>
       </section>
 
-      <section className="section bg-ceera-orange/10">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-6 text-center">Bureau Exécutif National (2025-2027)</h2>
-          <p className="text-lg max-w-3xl mx-auto text-center mb-12">
-            Notre bureau exécutif est composé de membres dévoués qui travaillent avec passion pour atteindre les objectifs du CEERA.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {executiveStaff.map((department, index) => <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="bg-ceera-dark text-white p-4">
-                  <h3 className="text-xl font-semibold">{department.role}</h3>
-                </div>
-                <div className="p-4">
-                  <ul className="space-y-2">
-                    {department.members.map((member, memberIndex) => <li key={memberIndex} className="border-b last:border-0 pb-2 last:pb-0">
-                        <p className="font-semibold">{member.position}:</p>
-                        <p className="text-ceera-orange">{member.name}</p>
-                      </li>)}
-                  </ul>
-                </div>
-              </div>)}
-          </div>
-        </div>
-      </section>
-
       <section className="section bg-ceera-dark text-white">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-6 text-center">Nos implantations</h2>
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white/10 p-6 rounded-lg mb-8">
-              <h3 className="text-xl font-bold mb-4">Siège principal</h3>
-              <p className="mb-2">
-                Le siège du CEERA est situé à Abidjan. Il peut être transféré, en cas de besoin, 
-                en tout autre lieu du territoire national sur décision de l'assemblée générale.
-              </p>
-            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white/10 p-6 rounded-lg">
+                <h3 className="text-xl font-bold mb-4">Siège principal</h3>
+                <p className="mb-2">
+                  Le siège du CEERA est situé à Abidjan. Il peut être transféré, en cas de besoin, 
+                  en tout autre lieu du territoire national sur décision de l'assemblée générale.
+                </p>
+              </div>
 
-            <div className="bg-white/10 p-6 rounded-lg mb-8">
-              <h3 className="text-xl font-bold mb-4">Bases existantes</h3>
-              <p className="mb-2">
-                Le CEERA dispose d'une base dans la ville de Bouaké, dénommée CEERA-BOUAKÉ.
-              </p>
-            </div>
+              <div className="bg-white/10 p-6 rounded-lg">
+                <h3 className="text-xl font-bold mb-4">Bases existantes</h3>
+                <p className="mb-2">
+                  Le CEERA dispose d'une base dans la ville de Bouaké, dénommée CEERA-BOUAKÉ.
+                </p>
+              </div>
 
-            <div className="bg-white/10 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-4">Expansion future</h3>
-              <p className="mb-2">
-                Le CEERA prévoit d'établir des bases dans toutes les villes où se trouvent des universités 
-                et grandes écoles, notamment à Agnibilékrou, Daloa, Yamoussoukro, Man, Korhogo, San-Pédro, et ailleurs.
-              </p>
+              <div className="bg-white/10 p-6 rounded-lg">
+                <h3 className="text-xl font-bold mb-4">Expansion future</h3>
+                <p className="mb-2">
+                  Le CEERA prévoit d'établir des bases dans toutes les villes où se trouvent des universités 
+                  et grandes écoles, notamment à Agnibilékrou, Daloa, Yamoussoukro, Man, Korhogo, San-Pédro, et ailleurs.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -361,6 +207,15 @@ const About = () => {
           </div>
         </div>
       </section>
+      
+      <div className="text-center py-10">
+        <img 
+          src="/lovable-uploads/532a1231-eba2-4266-882d-eac4fa510703.png" 
+          alt="Logo CEERA" 
+          className="h-24 mx-auto mb-6"
+        />
+        <p className="text-xl font-medium text-ceera-orange">CEERA - Pour l'unité et la solidarité</p>
+      </div>
     </div>;
 };
 export default About;

@@ -275,60 +275,6 @@ const Activities = () => {
         </div>
       </section>
 
-      <section className="section bg-ceera-dark text-white">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-6 text-center">Objectifs stratégiques</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="bg-white/10 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-4">Promotion de la diversité et de l'inclusion</h3>
-              <p className="text-gray-300">
-                Travailler à créer un environnement accueillant pour tous les élèves et étudiants, quelle que soit leur origine, 
-                en organisant des événements qui célèbrent la diversité culturelle et en favorisant un espace inclusif 
-                au sein de l'association.
-              </p>
-            </div>
-
-            <div className="bg-white/10 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-4">Sensibilisation aux enjeux sociaux et environnementaux</h3>
-              <p className="text-gray-300">
-                Intégrer des actions de responsabilité sociale et environnementale dans les activités de l'association, 
-                par exemple en organisant des campagnes de sensibilisation ou des collectes de fonds pour des causes importantes.
-              </p>
-            </div>
-
-            <div className="bg-white/10 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-4">Système de mentorat</h3>
-              <p className="text-gray-300">
-                Établir un programme de mentorat où des étudiants plus expérimentés accompagnent les nouveaux membres 
-                dans leur parcours académique et leur orientation professionnelle.
-              </p>
-            </div>
-
-            <div className="bg-white/10 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-4">Financement durable</h3>
-              <p className="text-gray-300">
-                Élaborer un plan de financement solide, incluant des stratégies pour lever des fonds, 
-                comme des événements de collecte de fonds ou des partenariats sponsorisés.
-              </p>
-            </div>
-          </div>
-          
-          <div className="max-w-4xl mx-auto bg-white/10 p-8 rounded-lg">
-            <h3 className="text-2xl font-bold mb-4 text-center">Un engagement social au service de la communauté</h3>
-            <p className="text-gray-200 mb-6">
-              Le CEERA s'affirme non seulement comme une association académique, mais également comme un acteur clé 
-              dans le développement social de notre communauté. À travers ses diverses actions, le CEERA démontre un 
-              engagement profond envers ses membres et l'ensemble de la population d'Agnibilékrou.
-            </p>
-            <p className="text-gray-200">
-              Notre objectif est de mener des actions pour le développement d'Agnibilékrou et l'épanouissement des élèves 
-              et étudiants de la ville et issus de la ville. Tous ceux qui sont dans l'association partagent l'amour 
-              de la ville d'Agnibilékrou et travaillent ensemble pour son avenir.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="section bg-white">
         <div className="container mx-auto">
           <h2 className="section-title">Activités passées</h2>

@@ -2,7 +2,7 @@
 import HeroSection from '@/components/HeroSection';
 import MembershipForm from '@/components/MembershipForm';
 import { Card } from '@/components/CardSection';
-import { CheckCircle, AlertCircle, Users, Award, Heart, BookOpen, Calendar, User, FileText } from 'lucide-react';
+import { CheckCircle, AlertCircle, Users, Award, Heart, User } from 'lucide-react';
 
 const Membership = () => {
   const benefits = [
@@ -48,64 +48,6 @@ const Membership = () => {
       icon: <User className="h-6 w-6 text-ceera-orange" />,
       title: "Soutien pour une naissance",
       description: "En cas de naissance, un montant de 500 FCFA de chaque membre plus d'autres présents sont alloués au membre."
-    }
-  ];
-
-  const secretariats = [
-    {
-      title: "Présidence",
-      description: "Le Président est le chef du bureau exécutif. Il convoque les assemblées générales et les réunions, veille à l'application des délibérations et représente l'association dans tous les actes de la vie civile. Il est assisté de deux Vice-Présidents qui le remplacent en cas d'absence.",
-      icon: <User className="h-6 w-6 text-ceera-orange" />
-    },
-    {
-      title: "Secrétariat Général",
-      description: "Le Secrétaire Général est le responsable administratif de l'association. Il rédige les procès-verbaux des délibérations, assure la correspondance et garde les archives. Il est assisté de deux adjoints.",
-      icon: <FileText className="h-6 w-6 text-ceera-orange" />
-    },
-    {
-      title: "Secrétariat à l'Organisation",
-      description: "Le Secrétaire à l'Organisation assure l'organisation matérielle pratique de toutes les manifestations du CEERA (réunions, rencontres, conférences, débats, colloques, AG). Il est assisté de deux adjoints.",
-      icon: <Calendar className="h-6 w-6 text-ceera-orange" />
-    },
-    {
-      title: "Secrétariat aux Finances",
-      description: "Le Secrétaire aux Finances est chargé des affaires financières du CEERA. Il gère les versements et retraits mais ne peut faire ces mouvements qu'avec l'accord et la signature du Président. Il établit un programme de recherche de financement.",
-      icon: <FileText className="h-6 w-6 text-ceera-orange" />
-    },
-    {
-      title: "Secrétariat à la Communication",
-      description: "Le Secrétaire à la Communication est chargé de recueillir toutes les informations utiles intéressant directement ou indirectement le CEERA. Il est responsable des publications du collectif et assure la communication entre les différents organes.",
-      icon: <FileText className="h-6 w-6 text-ceera-orange" />
-    },
-    {
-      title: "Secrétariat à la Culture et au Sport",
-      description: "Le Secrétaire à la Culture et au Sport est chargé des affaires culturelles et sportives. Il organise les événements culturels, sportifs et récréatifs et défend l'image du CEERA dans ces domaines.",
-      icon: <FileText className="h-6 w-6 text-ceera-orange" />
-    },
-    {
-      title: "Secrétariat aux Affaires Sociales",
-      description: "Le Secrétaire aux Affaires Sociales est chargé des problèmes de santé des élèves et étudiants, ainsi que de leurs problèmes sociaux (logements, bourses, restauration, transport). Il met en place des programmes de soutien moral, matériel et financier.",
-      icon: <Heart className="h-6 w-6 text-ceera-orange" />
-    },
-    {
-      title: "Secrétariat aux Affaires Académiques",
-      description: "Le Secrétaire aux Affaires Académiques est chargé des questions scolaires et académiques comme les inscriptions, la scolarité, les examens, les orientations et veille aux droits et devoirs des élèves et étudiants.",
-      icon: <BookOpen className="h-6 w-6 text-ceera-orange" />
-    },
-    {
-      title: "Secrétariat au Développement Durable",
-      description: "Le Secrétaire au Développement Durable est chargé de la gestion saine et durable de l'environnement et du cadre de vie. Il veille à la salubrité et œuvre à préserver les ressources naturelles et l'équilibre écologique.",
-      icon: <FileText className="h-6 w-6 text-ceera-orange" />
-    },
-    {
-      title: "Secrétariat à l'Insertion Professionnelle",
-      description: "Le Secrétaire à l'Insertion Professionnelle est chargé de trouver des stages et emplois pour les membres du Collectif. Il établit des partenariats avec des entreprises et d'autres structures pour faciliter l'insertion des élèves et étudiants.",
-      icon: <FileText className="h-6 w-6 text-ceera-orange" />
-    },
-    {
-      title: "Commissariat aux Comptes",
-      description: "Les Commissaires aux Comptes contrôlent la gestion financière du bureau exécutif, examinent les comptes annuels et dressent un rapport spécial à l'Assemblée Générale. Ils peuvent vérifier l'état de la caisse à tout moment.",
-      icon: <FileText className="h-6 w-6 text-ceera-orange" />
     }
   ];
 
@@ -201,31 +143,6 @@ const Membership = () => {
                 description={benefit.description} 
                 image={benefit.image}
               />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section bg-white">
-        <div className="container mx-auto">
-          <h2 className="section-title">Structure organisationnelle</h2>
-          <p className="section-subtitle">
-            Le CEERA fonctionne grâce à différents secrétariats, chacun avec ses responsabilités spécifiques pour assurer le bon fonctionnement du collectif.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-            {secretariats.map((secretariat, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <div className="flex items-center mb-4">
-                  <div className="bg-ceera-orange/10 p-2 rounded-full mr-3">
-                    {secretariat.icon}
-                  </div>
-                  <h3 className="text-xl font-bold">{secretariat.title}</h3>
-                </div>
-                <p className="text-gray-600">
-                  {secretariat.description}
-                </p>
-              </div>
             ))}
           </div>
         </div>
