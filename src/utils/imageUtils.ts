@@ -1,24 +1,26 @@
 
+import { ActivityImage } from '@/models/Activity';
+
 // Collection des photos téléchargées
 export const uploadedImages = [
-  "/lovable-uploads/b5f36c7b-f7c6-432f-8cd9-71c93bbc0d82.png",
-  "/lovable-uploads/1b8de120-30a4-4eda-a7bd-e86f64c88e86.png",
-  "/lovable-uploads/9c78cdbb-069b-419d-a9af-846ebaf59b71.png",
-  "/lovable-uploads/642ffc21-7b4b-4ab8-bdd5-1ba7b0e51b2d.png",
-  "/lovable-uploads/67cf9d5b-3fee-490b-8a56-1e30d50de6d4.png",
-  "/lovable-uploads/080b68f9-864f-493c-8bfe-1d7cd1d52d8e.png",
-  "/lovable-uploads/a5aaa899-ad03-48f5-b3c7-58175e1476b2.png",
-  "/lovable-uploads/6c9e924b-ca18-4b13-89f3-678780fbf2c1.png",
-  "/lovable-uploads/15f60297-c168-438d-ad1d-a3c325a0ca1a.png",
-  "/lovable-uploads/86194ff8-5bf3-43dd-999d-e76af4080581.png",
-  "/lovable-uploads/f5916ff0-aea0-49db-820f-1a003af772fe.png",
-  "/lovable-uploads/df140c24-c375-4ca1-910e-703a6bb1e21d.png",
-  "/lovable-uploads/7c0f7163-9bb6-4a53-99e9-087ee5d1e292.png",
-  "/lovable-uploads/3a75fdb0-15ab-46c5-9978-203064a55dbb.png",
-  "/lovable-uploads/d2dd2976-0330-42bb-b454-bc409c0c76d3.png",
-  "/lovable-uploads/bdbc8010-8fc4-434e-a34f-0a9e685a4d25.png",
-  "/lovable-uploads/fb8d282c-44b7-4398-a3ec-a4da5a05df4d.png",
-  "/lovable-uploads/aedcec36-ca50-4232-92f4-e7d050f6e2e7.png"
+  "/lovable-uploads/20c0bca8-166a-42ef-8c7f-bab4a782891e.png", // Cérémonie d'investiture président
+  "/lovable-uploads/fa31c6f4-a7c9-489a-a8a2-470be16414b8.png", // Salle de classe
+  "/lovable-uploads/7baa5553-0fc5-428d-821a-6dc4d3b0c9c5.png", // Groupe étudiants devant bâtiment rouge
+  "/lovable-uploads/4c13bf5b-a2f9-4ff5-a115-c6c242cbf628.png", // Groupe d'étudiants intérieur
+  "/lovable-uploads/160be3e1-5345-49f9-a4c0-a76bad65174c.png", // Petit groupe étudiants extérieur
+  "/lovable-uploads/5d607a03-011e-4166-9274-5f9b28d9a538.png", // Groupe étudiants devant entrée
+  "/lovable-uploads/7d101870-b448-4b66-903f-b96f03a4301e.png", // Groupe devant bâtiment rouge
+  "/lovable-uploads/c857cd43-bf05-42d3-8abc-301024db7a68.png", // Groupe sous tente
+  "/lovable-uploads/9bbfcb4b-0e67-4871-966a-0fc4a070c4fe.png", // Petit groupe sous tente
+  "/lovable-uploads/518dab76-260e-406a-9c17-790ab5d70fee.png", // Groupe devant bâtiment jaune
+  "/lovable-uploads/dcb08538-7c46-42a7-92d3-4f06007b0de8.png", // Étudiants en classe
+  "/lovable-uploads/e71a60ff-f1f1-4129-967a-685807b702d7.png", // Membre féminin en tenue blanche
+  "/lovable-uploads/aafe8f4a-7f2f-498e-92ec-3e81cd09aad4.png", // Membre masculin avec lunettes
+  "/lovable-uploads/254fd29f-e5ab-4b08-b77c-156d4e5e9528.png", // Petite équipe formelle
+  "/lovable-uploads/f70a5dca-15ad-4000-8cfb-9be5ae1cb5bd.png", // Équipe de direction
+  "/lovable-uploads/d201e87e-bda7-47b7-b9e9-c759d8af53b1.png", // Groupe à la plage
+  "/lovable-uploads/178df4c0-4cee-41e1-b2c9-72deb6e39217.png", // Grande équipe officielle
+  "/lovable-uploads/12e35acb-1767-49df-9540-73c0a0c2fe34.png"  // Équipe célébrant
 ];
 
 // Photos spécifiques pour les membres du bureau
@@ -54,7 +56,7 @@ export const getGalleryImage = (index: number): string => {
 };
 
 // Fonction pour créer des images d'activité conformes à l'interface ActivityImage
-export const createMockActivityImages = (activityId: string, count: number = 6) => {
+export const createMockActivityImages = (activityId: string, count: number = 6): ActivityImage[] => {
   return galleryPhotos.slice(0, count).map((img, index) => ({
     id: `mock-image-${activityId}-${index}`,
     activityId: activityId,
