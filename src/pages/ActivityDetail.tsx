@@ -1,4 +1,3 @@
-
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getActivityById } from '@/services/supabase';
@@ -61,8 +60,8 @@ const ActivityDetail = () => {
         title={activity.title}
         subtitle={`${activity.category === "evenements" ? "Événement" : 
                  activity.category === "comptes-rendus" ? "Compte-rendu" : "Actualité"} - ${activity.date}`}
-        backgroundImage={getRandomImage(uploadedImages, parseInt(activity.id, 36) % uploadedImages.length)}
-        showLogo={true}
+        backgroundImage={getRandomImage(uploadedImages, 7)}
+        showLogo={false}
         height="medium"
       />
       

@@ -2,6 +2,7 @@
 import HeroSection from '@/components/HeroSection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Target, Award, Users, UserPlus, Clock, Heart, FileText, Handshake } from 'lucide-react';
+import { getRandomImage, uploadedImages } from '@/utils/imageUtils';
 
 const About = () => {
   const values = [{
@@ -40,7 +41,7 @@ const About = () => {
   }];
   
   return <div>
-      <HeroSection title="À propos du CEERA" subtitle="Découvrez notre histoire, notre mission et nos valeurs" backgroundImage="https://images.unsplash.com/photo-1472396961693-142e6e269027" showLogo={true} />
+      <HeroSection title="À propos du CEERA" subtitle="Découvrez notre histoire, notre mission et nos valeurs" backgroundImage={getRandomImage(uploadedImages, 0)} showLogo={false} />
 
       <section className="section bg-white">
         <div className="container mx-auto">
@@ -84,11 +85,11 @@ const About = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Étudiants CEERA" className="rounded-lg h-full object-cover" />
+                <img src={getRandomImage(uploadedImages, 1)} alt="Étudiants CEERA" className="rounded-lg h-full object-cover" />
               </div>
               <div className="space-y-4">
-                <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" alt="Activités CEERA" className="rounded-lg h-[40%] object-cover" />
-                <img src="https://images.unsplash.com/photo-1466442929976-97f336a657be" alt="Culture CEERA" className="rounded-lg h-[60%] object-cover" />
+                <img src={getRandomImage(uploadedImages, 2)} alt="Activités CEERA" className="rounded-lg h-[40%] object-cover" />
+                <img src={getRandomImage(uploadedImages, 3)} alt="Culture CEERA" className="rounded-lg h-[60%] object-cover" />
               </div>
             </div>
           </div>

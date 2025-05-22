@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import HeroSection from '@/components/HeroSection';
@@ -106,8 +105,8 @@ const Activities = () => {
       <HeroSection 
         title="Blog & Actualités"
         subtitle="Restez informés des dernières nouvelles et événements du CEERA"
-        backgroundImage={getRandomImage(uploadedImages, 4)}
-        showLogo={true}
+        backgroundImage={getRandomImage(uploadedImages, 6)}
+        showLogo={false}
       />
 
       <section className="section bg-white">

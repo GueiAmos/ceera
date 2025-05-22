@@ -3,6 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import ContactForm from '@/components/ContactForm';
 import { MapPin, Mail, Phone, Clock, Facebook, MessageCircle, Building, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getRandomImage, uploadedImages } from '@/utils/imageUtils';
 
 const Contact = () => {
   const contactInfo = [
@@ -51,8 +52,8 @@ const Contact = () => {
       <HeroSection 
         title="Contactez-nous"
         subtitle="Nous sommes à votre disposition pour répondre à toutes vos questions"
-        backgroundImage="https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
-        showLogo={true}
+        backgroundImage={getRandomImage(uploadedImages, 4)}
+        showLogo={false}
       />
 
       <section className="section bg-gradient-to-r from-ceera-orange/10 to-white">
@@ -145,14 +146,13 @@ const Contact = () => {
           <h2 className="section-title">Où nous trouver</h2>
           <div className="max-w-4xl mx-auto">
             <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
-              {/* Placeholder for Google Map iframe */}
-              <div className="w-full h-full bg-gray-100 flex flex-col items-center justify-center p-8">
-                <Building className="h-16 w-16 text-ceera-orange mb-4" />
-                <h3 className="text-xl font-bold mb-2">Nos localisations</h3>
-                <p className="text-center max-w-md">
-                  Le CEERA dispose d'un siège à Abidjan et d'une base à Bouaké.
-                  Nous prévoyons de nous étendre dans toutes les principales villes universitaires de Côte d'Ivoire.
-                </p>
+              {/* CEERA group image instead of map */}
+              <div className="w-full h-full overflow-hidden">
+                <img 
+                  src={getRandomImage(uploadedImages, 5)} 
+                  alt="Localisations du CEERA" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
             
