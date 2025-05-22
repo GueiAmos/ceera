@@ -61,6 +61,23 @@ const SecretariatSection = ({
     </div>;
 };
 
+// Fonction pour obtenir une image aléatoire
+const getRandomImage = (index: number) => {
+  const imageUrls = [
+    "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
+    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+    "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952",
+    "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    "https://images.unsplash.com/photo-1560250097-0b93528c311a",
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
+    "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6"
+  ];
+  
+  return imageUrls[index % imageUrls.length];
+};
+
 const Team = () => {
   const secretariats: SecretariatProps[] = [{
     title: "Présidence",
@@ -69,15 +86,15 @@ const Team = () => {
     members: [{
       name: "OUATTARA DRISSA",
       position: "Président",
-      image: "/assets/team/president.jpg"
+      image: getRandomImage(0)
     }, {
       name: "Ouattara Abran Rose",
       position: "1er Vice-président",
-      image: "/assets/team/vice-president-1.jpg"
+      image: getRandomImage(1)
     }, {
       name: "Ouattara Lamine",
       position: "2ème Vice-président",
-      image: "/assets/team/vice-president-2.jpg"
+      image: getRandomImage(2)
     }]
   }, {
     title: "Secrétariat Général",
@@ -86,15 +103,15 @@ const Team = () => {
     members: [{
       name: "Kouamé Kouadio Célestin",
       position: "Secrétaire Général",
-      image: "/assets/team/secretaire-general.jpg"
+      image: getRandomImage(3)
     }, {
       name: "Akoua Awa",
       position: "Secrétaire Général Adjoint 1",
-      image: "/assets/team/secretaire-general-adj1.jpg"
+      image: getRandomImage(4)
     }, {
       name: "ATTA yao vital",
       position: "Secrétaire Général Adjoint 2",
-      image: "/assets/team/secretaire-general-adj2.jpg"
+      image: getRandomImage(5)
     }]
   }, {
     title: "Secrétariat à l'Organisation",
@@ -103,15 +120,15 @@ const Team = () => {
     members: [{
       name: "Kamagaté Lamine",
       position: "Secrétaire à l'Organisation",
-      image: "/assets/team/secretaire-organisation.jpg"
+      image: getRandomImage(6)
     }, {
       name: "DIALLO ABOUBACAR",
       position: "Secrétaire à l'Organisation Adjoint 1",
-      image: "/assets/team/secretaire-organisation-adj1.jpg"
+      image: getRandomImage(7)
     }, {
       name: "AIGNON Philipe",
       position: "Secrétaire à l'Organisation Adjoint 2",
-      image: "/assets/team/secretaire-organisation-adj2.jpg"
+      image: getRandomImage(8)
     }]
   }, {
     title: "Secrétariat à la Communication",
@@ -120,15 +137,15 @@ const Team = () => {
     members: [{
       name: "Kumassi Koffi Kié Jean-Marc",
       position: "Secrétaire à la Communication",
-      image: "/assets/team/secretaire-communication.jpg"
+      image: getRandomImage(9)
     }, {
       name: "Trinité Samson",
       position: "Secrétaire à la Communication Adjoint 1",
-      image: "/assets/team/secretaire-communication-adj1.jpg"
+      image: getRandomImage(10)
     }, {
       name: "Kouadio Donatien",
       position: "Secrétaire à la Communication Adjoint 2",
-      image: "/assets/team/secretaire-communication-adj2.jpg"
+      image: getRandomImage(11)
     }]
   }, {
     title: "Secrétariat aux Finances",
@@ -137,15 +154,15 @@ const Team = () => {
     members: [{
       name: "Palé Hibatoullah",
       position: "Secrétaire aux Finances",
-      image: "/assets/team/secretaire-finances.jpg"
+      image: getRandomImage(12)
     }, {
       name: "Ouattara Mariam",
       position: "Secrétaire aux Finances Adjoint 1",
-      image: "/assets/team/secretaire-finances-adj1.jpg"
+      image: getRandomImage(13)
     }, {
       name: "Kamagaté Sania",
       position: "Secrétaire aux Finances Adjoint 2",
-      image: "/assets/team/secretaire-finances-adj2.jpg"
+      image: getRandomImage(14)
     }]
   }, {
     title: "Secrétariat à la Culture et au Sport",
@@ -154,15 +171,15 @@ const Team = () => {
     members: [{
       name: "Diallo Siriki Junior",
       position: "Secrétaire à la Culture et au Sport",
-      image: "/assets/team/secretaire-culture-sport.jpg"
+      image: getRandomImage(15)
     }, {
       name: "Ouattara Masara",
       position: "Secrétaire à la Culture et au Sport Adjoint 1",
-      image: "/assets/team/secretaire-culture-sport-adj1.jpg"
+      image: getRandomImage(16)
     }, {
       name: "Ouattara Yaya",
       position: "Secrétaire à la Culture et au Sport Adjoint 2",
-      image: "/assets/team/secretaire-culture-sport-adj2.jpg"
+      image: getRandomImage(17)
     }]
   }, {
     title: "Secrétariat aux Affaires Sociales",
@@ -171,15 +188,15 @@ const Team = () => {
     members: [{
       name: "Ouattara Ibrahim",
       position: "Secrétaire aux Affaires Sociales",
-      image: "/assets/team/secretaire-affaires-sociales.jpg"
+      image: getRandomImage(18)
     }, {
       name: "Fofana Salimata",
       position: "Secrétaire aux Affaires Sociales Adjoint 1",
-      image: "/assets/team/secretaire-affaires-sociales-adj1.jpg"
+      image: getRandomImage(19)
     }, {
       name: "Diallo Aïcha",
       position: "Secrétaire aux Affaires Sociales Adjoint 2",
-      image: "/assets/team/secretaire-affaires-sociales-adj2.jpg"
+      image: getRandomImage(20)
     }]
   }, {
     title: "Secrétariat aux Affaires Académiques",
@@ -188,15 +205,15 @@ const Team = () => {
     members: [{
       name: "Guei Gnomblehi Amos",
       position: "Secrétaire aux Affaires Académiques",
-      image: "/assets/team/secretaire-affaires-academiques.jpg"
+      image: getRandomImage(21)
     }, {
       name: "Pini Léontine",
       position: "Secrétaire aux Affaires Académiques Adjoint 1",
-      image: "/assets/team/secretaire-affaires-academiques-adj1.jpg"
+      image: getRandomImage(22)
     }, {
       name: "Traoré Ramdé kadidjatou",
       position: "Secrétaire aux Affaires Académiques Adjoint 2",
-      image: "/assets/team/secretaire-affaires-academiques-adj2.jpg"
+      image: getRandomImage(23)
     }]
   }, {
     title: "Secrétariat à l'Environnement",
@@ -205,15 +222,15 @@ const Team = () => {
     members: [{
       name: "Ouattara Brou Prince Blanchard",
       position: "Secrétaire à l'Environnement",
-      image: "/assets/team/secretaire-environnement.jpg"
+      image: getRandomImage(24)
     }, {
       name: "Ouattara Bakary",
       position: "Secrétaire à l'Environnement Adjoint 1",
-      image: "/assets/team/secretaire-environnement-adj1.jpg"
+      image: getRandomImage(25)
     }, {
       name: "Blendou Ange Mauricette",
       position: "Secrétaire à l'Environnement Adjoint 2",
-      image: "/assets/team/secretaire-environnement-adj2.jpg"
+      image: getRandomImage(26)
     }]
   }, {
     title: "Secrétariat à l'Insertion Professionnelle",
@@ -222,15 +239,15 @@ const Team = () => {
     members: [{
       name: "Kambou Ollo",
       position: "Secrétaire à l'Insertion Professionnelle",
-      image: "/assets/team/secretaire-insertion-professionnelle.jpg"
+      image: getRandomImage(27)
     }, {
       name: "Ouattara Amie",
       position: "Secrétaire à l'Insertion Professionnelle Adjoint 1",
-      image: "/assets/team/secretaire-insertion-professionnelle-adj1.jpg"
+      image: getRandomImage(28)
     }, {
       name: "Boko Ama Valentine",
       position: "Secrétaire à l'Insertion Professionnelle Adjoint 2",
-      image: "/assets/team/secretaire-insertion-professionnelle-adj2.jpg"
+      image: getRandomImage(29)
     }]
   }, {
     title: "Commissariat aux Comptes",
@@ -239,15 +256,15 @@ const Team = () => {
     members: [{
       name: "YAO KOUADIO HENRI-JOEL",
       position: "Commissaire aux Comptes",
-      image: "/assets/team/commissaire-comptes.jpg"
+      image: getRandomImage(30)
     }, {
       name: "KOUASSI KOFFI ADAMA",
       position: "Commissaire aux Comptes Adjoint 1",
-      image: "/assets/team/commissaire-comptes-adj1.jpg"
+      image: getRandomImage(31)
     }, {
       name: "ADOU ANOH JONAS",
       position: "Commissaire aux Comptes Adjoint 2",
-      image: "/assets/team/commissaire-comptes-adj2.jpg"
+      image: getRandomImage(32)
     }]
   }];
   return <div>
@@ -278,4 +295,5 @@ const Team = () => {
       </section>
     </div>;
 };
+
 export default Team;

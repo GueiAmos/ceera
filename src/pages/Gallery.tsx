@@ -341,7 +341,10 @@ const Gallery = () => {
         >
           <button 
             className="absolute top-4 right-4 z-10 bg-black/50 text-white p-2 rounded-full"
-            onClick={() => setSelectedImageIndex(null)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImageIndex(null);
+            }}
           >
             <X className="h-6 w-6" />
           </button>
