@@ -6,7 +6,7 @@ import { Calendar, Clock, MapPin, Users, FileText, ChevronLeft } from 'lucide-re
 import { useState, useEffect } from 'react';
 import { useToast } from '@/components/ui/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
-import { galleryPhotos } from '@/utils/imageUtils';
+import { createMockActivityImages, getRandomImage, uploadedImages } from '@/utils/imageUtils';
 
 const ActivityDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -37,14 +37,8 @@ const ActivityDetail = () => {
   // Enrichissement des images de l'activité avec photos téléchargées
   useEffect(() => {
     if (activity && (!activity.images || activity.images.length === 0)) {
-      // Créer des images factices qui correspondent à l'interface ActivityImage
-      const mockImages = galleryPhotos.map((img, index) => ({
-        id: `mock-image-${index}`, // Ajout de l'id requis
-        activityId: activity.id, // Ajout de l'activityId requis
-        src: img,
-        caption: `Photo de l'événement ${activity.title} - ${index + 1}`
-      }));
-      activity.images = mockImages;
+      // Utilisez la fonction helper pour créer des images factices
+      activity.images = createMockActivityImages(activity.id);
     }
   }, [activity]);
 
@@ -68,13 +62,17 @@ const ActivityDetail = () => {
     );
   }
   
+  // Si l'image de couverture vient d'une source externe, la remplacer par une image téléchargée
+  const coverImage = activity.coverImage && activity.coverImage.startsWith("https://") ? 
+    getRandomImage(uploadedImages, parseInt(activity.id, 36) % uploadedImages.length) : activity.coverImage;
+  
   return (
     <div>
       <HeroSection
         title={activity.title}
         subtitle={`${activity.category === "evenements" ? "Événement" : 
                    activity.category === "comptes-rendus" ? "Compte-rendu" : "Actualité"} - ${activity.date}`}
-        backgroundImage={galleryPhotos[0]} // Utilisation d'une photo téléchargée comme image de couverture
+        backgroundImage={getRandomImage(uploadedImages, parseInt(activity.id, 36) % uploadedImages.length)}
         showLogo={true}
         height="medium"
       />

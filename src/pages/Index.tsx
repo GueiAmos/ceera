@@ -4,6 +4,7 @@ import CardSection from '@/components/CardSection';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Activity, Users, BookOpen, Calendar, Award, Handshake, BookOpen as BookOpenIcon, FileText, Target } from 'lucide-react';
+import { getRandomImage, uploadedImages } from '@/utils/imageUtils';
 
 const Index = () => {
   const featureCards = [
@@ -28,17 +29,17 @@ const Index = () => {
     {
       title: 'Journée culturelle',
       description: 'Célébration de notre riche patrimoine culturel avec des danses, chants et plats traditionnels.',
-      image: 'https://images.unsplash.com/photo-1466442929976-97f336a657be',
+      image: getRandomImage(uploadedImages, 0),
     },
     {
       title: 'Soutien scolaire',
       description: 'Programmes de mentorat et cours de soutien pour aider les élèves à réussir académiquement.',
-      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c',
+      image: getRandomImage(uploadedImages, 1),
     },
     {
       title: 'Actions sociales',
       description: 'Initiatives communautaires et solidaires pour aider ceux dans le besoin et promouvoir le développement local.',
-      image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81',
+      image: getRandomImage(uploadedImages, 2),
     },
   ];
 
@@ -49,6 +50,7 @@ const Index = () => {
         subtitle="Créé le 3 février 2023 - Association apolitique, laïque et à but non lucratif"
         buttonText="Rejoignez-nous"
         buttonLink="/membership"
+        backgroundImage={getRandomImage(uploadedImages, 3)}
         showLogo={true}
       />
 
@@ -103,7 +105,7 @@ const Index = () => {
             </div>
             <div className="relative h-full flex items-center justify-center">
               <img 
-                src="https://images.unsplash.com/photo-1472396961693-142e6e269027" 
+                src={getRandomImage(uploadedImages, 4)} 
                 alt="Étudiants CEERA" 
                 className="rounded-lg shadow-xl max-h-[400px] object-cover w-full"
               />

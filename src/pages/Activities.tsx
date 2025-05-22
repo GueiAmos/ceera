@@ -9,6 +9,7 @@ import { getActivities } from '@/services/supabase';
 import { useQuery } from '@tanstack/react-query';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToast } from '@/components/ui/use-toast';
+import { getRandomImage, uploadedImages } from '@/utils/imageUtils';
 
 const Activities = () => {
   const [activeTab, setActiveTab] = useState("toutes");
@@ -64,7 +65,7 @@ const Activities = () => {
       date: "15 Août 2025",
       time: "10:00 - 18:00",
       location: "Salle des fêtes d'Agnibilékrou",
-      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be",
+      image: getRandomImage(uploadedImages, 0),
       category: "culturelles",
       description: "Notre événement phare qui célèbre la richesse culturelle d'Agnibilékrou à travers des danses, chants, contes et expositions traditionnelles."
     },
@@ -74,7 +75,7 @@ const Activities = () => {
       date: "22 Juillet 2025",
       time: "09:00 - 17:00",
       location: "Stade municipal d'Agnibilékrou",
-      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027",
+      image: getRandomImage(uploadedImages, 1),
       category: "sportives",
       description: "Un tournoi sportif réunissant les élèves de différentes écoles pour des compétitions de football, basketball, athlétisme et autres sports."
     },
@@ -84,7 +85,7 @@ const Activities = () => {
       date: "10 Juin 2025",
       time: "14:00 - 17:00",
       location: "Bibliothèque municipale",
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+      image: getRandomImage(uploadedImages, 2),
       category: "academiques",
       description: "Une session de mentorat où les étudiants universitaires partagent leur expérience et conseillent les élèves sur leurs choix d'études."
     },
@@ -94,7 +95,7 @@ const Activities = () => {
       date: "5 Septembre 2025",
       time: "08:00 - 12:00",
       location: "Place du marché d'Agnibilékrou",
-      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+      image: getRandomImage(uploadedImages, 3),
       category: "sociales",
       description: "Une campagne de sensibilisation sur les maladies courantes et les mesures préventives, avec distribution de kits sanitaires."
     }
@@ -105,7 +106,7 @@ const Activities = () => {
       <HeroSection 
         title="Blog & Actualités"
         subtitle="Restez informés des dernières nouvelles et événements du CEERA"
-        backgroundImage="https://images.unsplash.com/photo-1523712999610-f77fbcfc3843"
+        backgroundImage={getRandomImage(uploadedImages, 4)}
         showLogo={true}
       />
 
@@ -238,11 +239,15 @@ interface ActivityCardProps {
 }
 
 const ActivityCard = ({ activity }: ActivityCardProps) => {
+  // Utilisez une image de vos photos personnelles en remplacement de l'image de couverture
+  const coverImage = activity.coverImage && activity.coverImage.startsWith("https://") ? 
+    getRandomImage(uploadedImages, parseInt(activity.id, 36) % uploadedImages.length) : activity.coverImage;
+  
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-all">
       <div className="h-48 overflow-hidden">
         <img 
-          src={activity.coverImage} 
+          src={coverImage} 
           alt={activity.title} 
           className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
         />
