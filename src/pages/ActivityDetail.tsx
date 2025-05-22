@@ -1,4 +1,3 @@
-
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getActivityById } from '@/services/supabase';
@@ -38,7 +37,10 @@ const ActivityDetail = () => {
   // Enrichissement des images de l'activité avec photos téléchargées
   useEffect(() => {
     if (activity && (!activity.images || activity.images.length === 0)) {
+      // Créer des images factices qui correspondent à l'interface ActivityImage
       const mockImages = galleryPhotos.map((img, index) => ({
+        id: `mock-image-${index}`, // Ajout de l'id requis
+        activityId: activity.id, // Ajout de l'activityId requis
         src: img,
         caption: `Photo de l'événement ${activity.title} - ${index + 1}`
       }));

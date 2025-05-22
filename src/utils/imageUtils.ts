@@ -74,3 +74,13 @@ export const getEventImage = (index: number): string => {
 export const getGalleryImage = (index: number): string => {
   return getRandomImage(galleryPhotos, index);
 };
+
+// Fonction pour créer des images d'activité conformes à l'interface ActivityImage
+export const createMockActivityImages = (activityId: string, count: number = 6) => {
+  return galleryPhotos.slice(0, count).map((img, index) => ({
+    id: `mock-image-${activityId}-${index}`,
+    activityId: activityId,
+    src: img,
+    caption: `Photo d'événement - ${index + 1}`
+  }));
+};
