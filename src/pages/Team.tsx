@@ -2,7 +2,11 @@
 import { Card, CardContent } from '@/components/ui/card';
 import HeroSection from '@/components/HeroSection';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Building, Users, FileText, Calendar, BookOpen, Heart, Handshake } from 'lucide-react';
+import { 
+  Users, FileText, Calendar, BookOpen, Heart, 
+  Handshake, ClipboardCheck, Leaf, Building 
+} from 'lucide-react';
+import { getMemberImage } from '@/utils/imageUtils';
 
 interface TeamMemberProps {
   name: string;
@@ -61,23 +65,6 @@ const SecretariatSection = ({
     </div>;
 };
 
-// Fonction pour obtenir une image aléatoire
-const getRandomImage = (index: number) => {
-  const imageUrls = [
-    "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
-    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
-    "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952",
-    "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-    "https://images.unsplash.com/photo-1560250097-0b93528c311a",
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
-    "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-    "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6"
-  ];
-  
-  return imageUrls[index % imageUrls.length];
-};
-
 const Team = () => {
   const secretariats: SecretariatProps[] = [{
     title: "Présidence",
@@ -86,15 +73,15 @@ const Team = () => {
     members: [{
       name: "OUATTARA DRISSA",
       position: "Président",
-      image: getRandomImage(0)
+      image: getMemberImage(0)
     }, {
       name: "Ouattara Abran Rose",
       position: "1er Vice-président",
-      image: getRandomImage(1)
+      image: getMemberImage(1)
     }, {
       name: "Ouattara Lamine",
       position: "2ème Vice-président",
-      image: getRandomImage(2)
+      image: getMemberImage(2)
     }]
   }, {
     title: "Secrétariat Général",
@@ -103,15 +90,15 @@ const Team = () => {
     members: [{
       name: "Kouamé Kouadio Célestin",
       position: "Secrétaire Général",
-      image: getRandomImage(3)
+      image: getMemberImage(3)
     }, {
       name: "Akoua Awa",
       position: "Secrétaire Général Adjoint 1",
-      image: getRandomImage(4)
+      image: getMemberImage(4)
     }, {
       name: "ATTA yao vital",
       position: "Secrétaire Général Adjoint 2",
-      image: getRandomImage(5)
+      image: getMemberImage(5)
     }]
   }, {
     title: "Secrétariat à l'Organisation",
@@ -120,15 +107,15 @@ const Team = () => {
     members: [{
       name: "Kamagaté Lamine",
       position: "Secrétaire à l'Organisation",
-      image: getRandomImage(6)
+      image: getMemberImage(6)
     }, {
       name: "DIALLO ABOUBACAR",
       position: "Secrétaire à l'Organisation Adjoint 1",
-      image: getRandomImage(7)
+      image: getMemberImage(7)
     }, {
       name: "AIGNON Philipe",
       position: "Secrétaire à l'Organisation Adjoint 2",
-      image: getRandomImage(8)
+      image: getMemberImage(8)
     }]
   }, {
     title: "Secrétariat à la Communication",
@@ -137,15 +124,15 @@ const Team = () => {
     members: [{
       name: "Kumassi Koffi Kié Jean-Marc",
       position: "Secrétaire à la Communication",
-      image: getRandomImage(9)
+      image: getMemberImage(9)
     }, {
       name: "Trinité Samson",
       position: "Secrétaire à la Communication Adjoint 1",
-      image: getRandomImage(10)
+      image: getMemberImage(10)
     }, {
       name: "Kouadio Donatien",
       position: "Secrétaire à la Communication Adjoint 2",
-      image: getRandomImage(11)
+      image: getMemberImage(11)
     }]
   }, {
     title: "Secrétariat aux Finances",
@@ -154,15 +141,15 @@ const Team = () => {
     members: [{
       name: "Palé Hibatoullah",
       position: "Secrétaire aux Finances",
-      image: getRandomImage(12)
+      image: getMemberImage(12)
     }, {
       name: "Ouattara Mariam",
       position: "Secrétaire aux Finances Adjoint 1",
-      image: getRandomImage(13)
+      image: getMemberImage(13)
     }, {
       name: "Kamagaté Sania",
       position: "Secrétaire aux Finances Adjoint 2",
-      image: getRandomImage(14)
+      image: getMemberImage(14)
     }]
   }, {
     title: "Secrétariat à la Culture et au Sport",
@@ -171,15 +158,15 @@ const Team = () => {
     members: [{
       name: "Diallo Siriki Junior",
       position: "Secrétaire à la Culture et au Sport",
-      image: getRandomImage(15)
+      image: getMemberImage(15)
     }, {
       name: "Ouattara Masara",
       position: "Secrétaire à la Culture et au Sport Adjoint 1",
-      image: getRandomImage(16)
+      image: getMemberImage(16)
     }, {
       name: "Ouattara Yaya",
       position: "Secrétaire à la Culture et au Sport Adjoint 2",
-      image: getRandomImage(17)
+      image: getMemberImage(17)
     }]
   }, {
     title: "Secrétariat aux Affaires Sociales",
@@ -188,15 +175,15 @@ const Team = () => {
     members: [{
       name: "Ouattara Ibrahim",
       position: "Secrétaire aux Affaires Sociales",
-      image: getRandomImage(18)
+      image: getMemberImage(18)
     }, {
       name: "Fofana Salimata",
       position: "Secrétaire aux Affaires Sociales Adjoint 1",
-      image: getRandomImage(19)
+      image: getMemberImage(19)
     }, {
       name: "Diallo Aïcha",
       position: "Secrétaire aux Affaires Sociales Adjoint 2",
-      image: getRandomImage(20)
+      image: getMemberImage(20)
     }]
   }, {
     title: "Secrétariat aux Affaires Académiques",
@@ -205,32 +192,32 @@ const Team = () => {
     members: [{
       name: "Guei Gnomblehi Amos",
       position: "Secrétaire aux Affaires Académiques",
-      image: getRandomImage(21)
+      image: getMemberImage(21)
     }, {
       name: "Pini Léontine",
       position: "Secrétaire aux Affaires Académiques Adjoint 1",
-      image: getRandomImage(22)
+      image: getMemberImage(22)
     }, {
       name: "Traoré Ramdé kadidjatou",
       position: "Secrétaire aux Affaires Académiques Adjoint 2",
-      image: getRandomImage(23)
+      image: getMemberImage(23)
     }]
   }, {
     title: "Secrétariat à l'Environnement",
     description: "Le Secrétariat à l'Environnement est le gardien de l'engagement écologique du CEERA. Il développe une stratégie environnementale globale pour l'association, met en œuvre des projets concrets de protection de la biodiversité locale, sensibilise les membres et la communauté aux enjeux climatiques, promeut des pratiques écoresponsables dans toutes les activités du collectif, et évalue régulièrement l'impact environnemental des initiatives pour garantir une approche véritablement durable.",
-    icon: <FileText className="h-6 w-6 text-ceera-orange" />,
+    icon: <Leaf className="h-6 w-6 text-ceera-orange" />,
     members: [{
       name: "Ouattara Brou Prince Blanchard",
       position: "Secrétaire à l'Environnement",
-      image: getRandomImage(24)
+      image: getMemberImage(24)
     }, {
       name: "Ouattara Bakary",
       position: "Secrétaire à l'Environnement Adjoint 1",
-      image: getRandomImage(25)
+      image: getMemberImage(25)
     }, {
       name: "Blendou Ange Mauricette",
       position: "Secrétaire à l'Environnement Adjoint 2",
-      image: getRandomImage(26)
+      image: getMemberImage(26)
     }]
   }, {
     title: "Secrétariat à l'Insertion Professionnelle",
@@ -239,36 +226,42 @@ const Team = () => {
     members: [{
       name: "Kambou Ollo",
       position: "Secrétaire à l'Insertion Professionnelle",
-      image: getRandomImage(27)
+      image: getMemberImage(27)
     }, {
       name: "Ouattara Amie",
       position: "Secrétaire à l'Insertion Professionnelle Adjoint 1",
-      image: getRandomImage(28)
+      image: getMemberImage(28)
     }, {
       name: "Boko Ama Valentine",
       position: "Secrétaire à l'Insertion Professionnelle Adjoint 2",
-      image: getRandomImage(29)
+      image: getMemberImage(29)
     }]
   }, {
     title: "Commissariat aux Comptes",
     description: "Le Commissariat aux Comptes est le pilier de l'intégrité financière et de la gouvernance transparente du CEERA. Il effectue des audits indépendants et rigoureux de toutes les transactions financières, analyse l'adéquation entre les dépenses réalisées et les objectifs de l'association, formule des recommandations pour optimiser la gestion des ressources, et présente des rapports objectifs qui renforcent la confiance des membres et des partenaires dans la bonne gestion du collectif.",
-    icon: <FileText className="h-6 w-6 text-ceera-orange" />,
+    icon: <ClipboardCheck className="h-6 w-6 text-ceera-orange" />,
     members: [{
       name: "YAO KOUADIO HENRI-JOEL",
       position: "Commissaire aux Comptes",
-      image: getRandomImage(30)
+      image: getMemberImage(30)
     }, {
       name: "KOUASSI KOFFI ADAMA",
       position: "Commissaire aux Comptes Adjoint 1",
-      image: getRandomImage(31)
+      image: getMemberImage(31)
     }, {
       name: "ADOU ANOH JONAS",
       position: "Commissaire aux Comptes Adjoint 2",
-      image: getRandomImage(32)
+      image: getMemberImage(32)
     }]
   }];
   return <div>
-      <HeroSection title="L'Équipe du CEERA" subtitle="Découvrez le Bureau Exécutif National qui œuvre pour le développement du collectif" backgroundImage="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" showLogo={true} height="small" />
+      <HeroSection 
+        title="L'Équipe du CEERA" 
+        subtitle="Découvrez le Bureau Exécutif National qui œuvre pour le développement du collectif" 
+        backgroundImage="/lovable-uploads/6c9e924b-ca18-4b13-89f3-678780fbf2c1.png" 
+        showLogo={true} 
+        height="small" 
+      />
 
       <section className="section bg-gradient-to-r from-ceera-orange/20 to-ceera-orange/5">
         <div className="container mx-auto">

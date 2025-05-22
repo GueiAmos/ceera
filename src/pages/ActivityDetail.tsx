@@ -7,6 +7,7 @@ import { Calendar, Clock, MapPin, Users, FileText, ChevronLeft } from 'lucide-re
 import { useState, useEffect } from 'react';
 import { useToast } from '@/components/ui/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
+import { galleryPhotos } from '@/utils/imageUtils';
 
 const ActivityDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -34,6 +35,17 @@ const ActivityDetail = () => {
     }
   }, [error, toast]);
 
+  // Enrichissement des images de l'activité avec photos téléchargées
+  useEffect(() => {
+    if (activity && (!activity.images || activity.images.length === 0)) {
+      const mockImages = galleryPhotos.map((img, index) => ({
+        src: img,
+        caption: `Photo de l'événement ${activity.title} - ${index + 1}`
+      }));
+      activity.images = mockImages;
+    }
+  }, [activity]);
+
   if (isLoading) {
     return <ActivityDetailSkeleton />;
   }
@@ -60,7 +72,7 @@ const ActivityDetail = () => {
         title={activity.title}
         subtitle={`${activity.category === "evenements" ? "Événement" : 
                    activity.category === "comptes-rendus" ? "Compte-rendu" : "Actualité"} - ${activity.date}`}
-        backgroundImage={activity.coverImage}
+        backgroundImage={galleryPhotos[0]} // Utilisation d'une photo téléchargée comme image de couverture
         showLogo={true}
         height="medium"
       />
@@ -139,13 +151,13 @@ const ActivityDetail = () => {
               </div>
             )}
             
-            {/* Image modal/lightbox */}
+            {/* Image modal/lightbox - Amélioré pour une meilleure expérience */}
             {selectedImageIndex !== null && activity.images && (
-              <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+              <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
                    onClick={() => setSelectedImageIndex(null)}>
-                <div className="relative max-w-4xl w-full" onClick={e => e.stopPropagation()}>
+                <div className="relative max-w-5xl w-full" onClick={e => e.stopPropagation()}>
                   <button 
-                    className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full"
+                    className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
                     onClick={() => setSelectedImageIndex(null)}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -154,16 +166,16 @@ const ActivityDetail = () => {
                   <img 
                     src={activity.images[selectedImageIndex].src} 
                     alt={activity.images[selectedImageIndex].caption}
-                    className="w-full h-auto max-h-[80vh] object-contain"
+                    className="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl"
                   />
                   
-                  <div className="bg-black/50 text-white p-4 absolute bottom-0 left-0 right-0">
-                    <p className="text-center">{activity.images[selectedImageIndex].caption}</p>
+                  <div className="bg-black/60 backdrop-blur-sm text-white p-4 absolute bottom-0 left-0 right-0 rounded-b-lg">
+                    <p className="text-center font-medium">{activity.images[selectedImageIndex].caption}</p>
                   </div>
                   
                   <div className="absolute top-[50%] transform -translate-y-1/2 left-4">
                     <button 
-                      className="bg-black/50 text-white p-2 rounded-full"
+                      className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
                       onClick={(e) => {
                         e.stopPropagation();
                         setSelectedImageIndex(prev => (prev === 0 ? activity.images.length - 1 : prev! - 1));
@@ -175,7 +187,7 @@ const ActivityDetail = () => {
                   
                   <div className="absolute top-[50%] transform -translate-y-1/2 right-4">
                     <button 
-                      className="bg-black/50 text-white p-2 rounded-full"
+                      className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
                       onClick={(e) => {
                         e.stopPropagation();
                         setSelectedImageIndex(prev => (prev === activity.images.length - 1 ? 0 : prev! + 1));
@@ -183,6 +195,22 @@ const ActivityDetail = () => {
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                     </button>
+                  </div>
+                  
+                  {/* Indicateur de position */}
+                  <div className="absolute bottom-16 left-0 right-0 flex justify-center gap-1 p-2">
+                    {activity.images.map((_, idx) => (
+                      <button
+                        key={idx}
+                        className={`h-2 rounded-full transition-all ${
+                          idx === selectedImageIndex ? "w-6 bg-white" : "w-2 bg-white/50"
+                        }`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedImageIndex(idx);
+                        }}
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
