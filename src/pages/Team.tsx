@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 import HeroSection from '@/components/HeroSection';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -6,7 +5,7 @@ import {
   Users, FileText, Calendar, BookOpen, Heart, 
   Handshake, ClipboardCheck, Leaf, Building 
 } from 'lucide-react';
-import { getMemberImage } from '@/utils/imageUtils';
+import { getMemberImage, getRandomImage, uploadedImages } from '@/utils/imageUtils';
 
 interface TeamMemberProps {
   name: string;
@@ -258,8 +257,8 @@ const Team = () => {
       <HeroSection 
         title="L'Équipe du CEERA" 
         subtitle="Découvrez le Bureau Exécutif National qui œuvre pour le développement du collectif" 
-        backgroundImage="/lovable-uploads/6c9e924b-ca18-4b13-89f3-678780fbf2c1.png" 
-        showLogo={true} 
+        backgroundImage={getRandomImage(uploadedImages, 2)}
+        showLogo={false} 
         height="small" 
       />
 

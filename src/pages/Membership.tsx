@@ -3,6 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import MembershipForm from '@/components/MembershipForm';
 import { Card } from '@/components/CardSection';
 import { CheckCircle, AlertCircle, Users, Award, Heart, User } from 'lucide-react';
+import { getRandomImage, uploadedImages } from '@/utils/imageUtils';
 
 const Membership = () => {
   const benefits = [
@@ -56,8 +57,8 @@ const Membership = () => {
       <HeroSection 
         title="Rejoignez notre collectif"
         subtitle="Devenez membre du CEERA et participez à nos initiatives"
-        backgroundImage="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
-        showLogo={true}
+        backgroundImage={getRandomImage(uploadedImages, 5)}
+        showLogo={false}
       />
 
       <section className="section bg-white">
