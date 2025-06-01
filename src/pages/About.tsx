@@ -1,10 +1,10 @@
-
 import HeroSection from '@/components/HeroSection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Target, Award, Users, UserPlus, Clock, Heart, FileText, Handshake } from 'lucide-react';
 import { getRandomImage, uploadedImages } from '@/utils/imageUtils';
 
 const About = () => {
+  
   const values = [{
     icon: <Heart className="h-8 w-8 text-ceera-orange" />,
     title: "Solidarité",
@@ -41,7 +41,7 @@ const About = () => {
   }];
   
   return <div>
-      <HeroSection title="À propos du CEERA" subtitle="Découvrez notre histoire, notre mission et nos valeurs" backgroundImage={getRandomImage(uploadedImages, 0)} showLogo={false} />
+      <HeroSection title="À propos du CEERA" subtitle="Découvrez notre histoire, notre mission et nos valeurs" backgroundImage={getRandomImage(uploadedImages, 50)} showLogo={false} />
 
       <section className="section bg-white">
         <div className="container mx-auto">
@@ -85,17 +85,18 @@ const About = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <img src={getRandomImage(uploadedImages, 1)} alt="Étudiants CEERA" className="rounded-lg h-full object-cover" />
+                <img src={getRandomImage(uploadedImages, 51)} alt="Étudiants CEERA" className="rounded-lg h-full object-cover" />
               </div>
               <div className="space-y-4">
-                <img src={getRandomImage(uploadedImages, 2)} alt="Activités CEERA" className="rounded-lg h-[40%] object-cover" />
-                <img src={getRandomImage(uploadedImages, 3)} alt="Culture CEERA" className="rounded-lg h-[60%] object-cover" />
+                <img src={getRandomImage(uploadedImages, 52)} alt="Activités CEERA" className="rounded-lg h-[40%] object-cover" />
+                <img src={getRandomImage(uploadedImages, 53)} alt="Culture CEERA" className="rounded-lg h-[60%] object-cover" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      
       <section className="section bg-ceera-dark text-white">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-3 text-center">Notre mission</h2>
@@ -160,6 +161,7 @@ const About = () => {
         </div>
       </section>
 
+      
       <section className="section bg-secondary/50">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-3 text-center">Nos valeurs</h2>

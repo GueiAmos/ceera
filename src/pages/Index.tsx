@@ -1,4 +1,3 @@
-
 import HeroSection from '@/components/HeroSection';
 import CardSection from '@/components/CardSection';
 import { Button } from '@/components/ui/button';
@@ -29,17 +28,17 @@ const Index = () => {
     {
       title: 'Journée culturelle',
       description: 'Célébration de notre riche patrimoine culturel avec des danses, chants et plats traditionnels.',
-      image: getRandomImage(uploadedImages, 0),
+      image: getRandomImage(uploadedImages, 60),
     },
     {
       title: 'Soutien scolaire',
       description: 'Programmes de mentorat et cours de soutien pour aider les élèves à réussir académiquement.',
-      image: getRandomImage(uploadedImages, 1),
+      image: getRandomImage(uploadedImages, 61),
     },
     {
       title: 'Actions sociales',
       description: 'Initiatives communautaires et solidaires pour aider ceux dans le besoin et promouvoir le développement local.',
-      image: getRandomImage(uploadedImages, 2),
+      image: getRandomImage(uploadedImages, 62),
     },
   ];
 
@@ -50,7 +49,7 @@ const Index = () => {
         subtitle="Créé le 3 février 2023 - Association apolitique, laïque et à but non lucratif"
         buttonText="Rejoignez-nous"
         buttonLink="/membership"
-        backgroundImage={getRandomImage(uploadedImages, 3)}
+        backgroundImage={getRandomImage(uploadedImages, 63)}
         showLogo={true}
       />
 
@@ -105,19 +104,10 @@ const Index = () => {
             </div>
             <div className="relative h-full flex items-center justify-center">
               <img 
-                src={getRandomImage(uploadedImages, 4)} 
+                src={getRandomImage(uploadedImages, 64)} 
                 alt="Étudiants CEERA" 
                 className="rounded-lg shadow-xl max-h-[400px] object-cover w-full"
               />
-              <div className="absolute -bottom-5 -left-5 bg-ceera-orange text-white p-4 rounded-lg shadow-lg">
-                <div className="flex items-center">
-                  <Award size={24} className="mr-2" />
-                  <div>
-                    <p className="text-sm">Fondé en</p>
-                    <p className="font-bold text-xl">2023</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
