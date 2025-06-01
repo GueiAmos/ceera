@@ -60,7 +60,7 @@ const ActivityDetail = () => {
         title={activity.title}
         subtitle={`${activity.category === "evenements" ? "Événement" : 
                  activity.category === "comptes-rendus" ? "Compte-rendu" : "Actualité"} - ${activity.date}`}
-        backgroundImage={getRandomImage(uploadedImages, 7)}
+        backgroundImage={getRandomImage(uploadedImages, 26)}
         showLogo={false}
         height="medium"
       />

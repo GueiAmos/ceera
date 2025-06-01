@@ -13,7 +13,7 @@ const Gallery = () => {
       <HeroSection 
         title="Galerie Photos"
         subtitle="Découvrez les visages du CEERA - Nos membres en action"
-        backgroundImage={uploadedImages[0]}
+        backgroundImage={getRandomImage(uploadedImages, 24)}
         showLogo={false}
         height="small"
       />

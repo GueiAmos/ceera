@@ -257,7 +257,7 @@ const Team = () => {
       <HeroSection 
         title="L'Équipe du CEERA" 
         subtitle="Découvrez le Bureau Exécutif National qui œuvre pour le développement du collectif" 
-        backgroundImage={getRandomImage(uploadedImages, 2)}
+        backgroundImage={getRandomImage(uploadedImages, 20)}
         showLogo={false} 
         height="small" 
       />

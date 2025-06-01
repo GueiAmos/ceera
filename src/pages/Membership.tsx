@@ -1,31 +1,30 @@
-
 import HeroSection from '@/components/HeroSection';
 import MembershipForm from '@/components/MembershipForm';
 import { Card } from '@/components/CardSection';
 import { CheckCircle, AlertCircle, Users, Award, Heart, User } from 'lucide-react';
-import { getRandomImage, uploadedImages } from '@/utils/imageUtils';
+import { getRandomImage, uploadedImages, getEventImage } from '@/utils/imageUtils';
 
 const Membership = () => {
   const benefits = [
     {
       title: "Réseau et solidarité",
       description: "Intégrez un réseau solide d'élèves et d'étudiants partageant vos origines et vos valeurs.",
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
+      image: getEventImage(1)
     },
     {
       title: "Soutien académique",
       description: "Bénéficiez de programmes de mentorat, de séances de soutien scolaire et d'orientation académique.",
-      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
+      image: getEventImage(2)
     },
     {
       title: "Opportunités culturelles",
       description: "Participez à de nombreux événements culturels pour célébrer et préserver notre patrimoine.",
-      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be"
+      image: getEventImage(3)
     },
     {
       title: "Développement personnel",
       description: "Développez vos compétences de leadership et d'organisation à travers diverses responsabilités.",
-      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027"
+      image: getEventImage(4)
     }
   ];
 
@@ -57,7 +56,7 @@ const Membership = () => {
       <HeroSection 
         title="Rejoignez notre collectif"
         subtitle="Devenez membre du CEERA et participez à nos initiatives"
-        backgroundImage={getRandomImage(uploadedImages, 5)}
+        backgroundImage={getRandomImage(uploadedImages, 18)}
         showLogo={false}
       />
 
