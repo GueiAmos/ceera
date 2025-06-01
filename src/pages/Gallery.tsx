@@ -1,9 +1,8 @@
-
 import { useState } from 'react';
 import HeroSection from '@/components/HeroSection';
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
-import { uploadedImages } from '@/utils/imageUtils';
+import { uploadedImages, getRandomImage } from '@/utils/imageUtils';
 
 const Gallery = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
