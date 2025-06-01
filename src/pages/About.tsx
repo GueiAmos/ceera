@@ -41,8 +41,9 @@ const About = () => {
   }];
   
   return <div>
-      <HeroSection title="À propos du CEERA" subtitle="Découvrez notre histoire, notre mission et nos valeurs" backgroundImage={getRandomImage(uploadedImages, 50)} showLogo={false} />
+      <HeroSection title="À propos du CEERA" subtitle="Découvrez notre histoire, notre mission et nos valeurs" backgroundImage={getRandomImage(uploadedImages, 18)} showLogo={false} />
 
+      
       <section className="section bg-white">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-center mb-12">
@@ -85,11 +86,11 @@ const About = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <img src={getRandomImage(uploadedImages, 51)} alt="Étudiants CEERA" className="rounded-lg h-full object-cover" />
+                <img src={getRandomImage(uploadedImages, 19)} alt="Étudiants CEERA" className="rounded-lg h-full object-cover" />
               </div>
               <div className="space-y-4">
-                <img src={getRandomImage(uploadedImages, 52)} alt="Activités CEERA" className="rounded-lg h-[40%] object-cover" />
-                <img src={getRandomImage(uploadedImages, 53)} alt="Culture CEERA" className="rounded-lg h-[60%] object-cover" />
+                <img src={getRandomImage(uploadedImages, 20)} alt="Activités CEERA" className="rounded-lg h-[40%] object-cover" />
+                <img src={getRandomImage(uploadedImages, 21)} alt="Culture CEERA" className="rounded-lg h-[60%] object-cover" />
               </div>
             </div>
           </div>

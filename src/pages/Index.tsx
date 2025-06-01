@@ -49,7 +49,7 @@ const Index = () => {
         subtitle="Créé le 3 février 2023 - Association apolitique, laïque et à but non lucratif"
         buttonText="Rejoignez-nous"
         buttonLink="/membership"
-        backgroundImage={getRandomImage(uploadedImages, 63)}
+        backgroundImage={getRandomImage(uploadedImages, 0)}
         showLogo={true}
       />
 
