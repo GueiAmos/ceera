@@ -262,22 +262,11 @@ const Team = () => {
         height="small" 
       />
 
-      <section className="section bg-gradient-to-r from-ceera-orange/20 to-ceera-orange/5">
-        <div className="container mx-auto">
-          <h2 className="section-title">Bureau Exécutif National (2025-2027)</h2>
-          <p className="section-subtitle">
-            Notre bureau exécutif est composé de membres dévoués qui travaillent avec passion pour atteindre les objectifs du CEERA.
-            Le Bureau Exécutif National actuel a été élu pour un mandat de deux ans, s'étendant de 2025 à 2027.
-          </p>
-        </div>
-      </section>
-
       <section className="section bg-white">
         <div className="container mx-auto">
-          <h2 className="section-title">Structure Organisationnelle</h2>
+          <h2 className="section-title">Bureau Exécutif National (2025-2027)</h2>
           <p className="section-subtitle mb-16">
-            Le CEERA est structuré autour d'un Bureau Exécutif National (BEN) élu pour un mandat de 2 ans, 
-            composé de différents secrétariats qui travaillent en synergie pour atteindre les objectifs de l'association.
+            Le Bureau Exécutif National du CEERA, élu pour un mandat de deux ans (2025-2027), est composé de membres dévoués qui travaillent avec passion pour atteindre les objectifs de l'association. Il est structuré autour de différents secrétariats qui œuvrent en synergie pour le développement du collectif.
           </p>
           
           <div className="space-y-16">
