@@ -1,18 +1,8 @@
 import HeroSection from '@/components/HeroSection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Target, Award, Users, Heart, Sparkles, GraduationCap, MapPin } from 'lucide-react';
 import { getRandomImage, uploadedImages } from '@/utils/imageUtils';
-import { Card, CardContent } from '@/components/ui/card';
 
 const About = () => {
-  
-  const values = [
-    { icon: Heart, title: "Solidarité" },
-    { icon: Award, title: "Excellence" },
-    { icon: Users, title: "Inclusion" },
-    { icon: Target, title: "Engagement" }
-  ];
-  
   const faqs = [{
     question: "Qui peut devenir membre du CEERA ?",
     answer: "Peuvent adhérer à l'association toutes personnes volontaires, ayant le statut d'élève ou étudiant, quel que soit le lieu où cette personne sera orientée. Il faut obligatoirement être un ressortissant d'Agnibilékrou."
@@ -109,96 +99,33 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission Section - Simplified */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-ceera-dark via-ceera-brown to-ceera-dark text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-64 h-64 bg-ceera-orange rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-ceera-orange rounded-full blur-3xl"></div>
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <Sparkles className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-6 text-ceera-orange" />
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Notre mission</h2>
-            <p className="text-xl md:text-2xl lg:text-3xl font-light leading-relaxed mb-8">
-              Promouvoir la <span className="font-bold text-ceera-orange">solidarité</span>, 
-              l'<span className="font-bold text-ceera-orange">excellence académique</span> et 
-              le <span className="font-bold text-ceera-orange">développement</span> culturel et social 
-              des élèves et étudiants d'Agnibilékrou
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Valeurs Section - Modern & Simple */}
-      <section className="py-12 md:py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos valeurs</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-ceera-orange to-ceera-brown rounded-full mx-auto"></div>
-          </div>
-          
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-5xl mx-auto">
-            {values.map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <div 
-                  key={index} 
-                  className="group relative bg-white rounded-2xl p-6 md:p-8 text-center shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-ceera-orange/0 to-ceera-orange/0 group-hover:from-ceera-orange/5 group-hover:to-ceera-brown/5 rounded-2xl transition-all duration-300"></div>
-                  <div className="relative z-10">
-                    <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 md:mb-6 bg-gradient-to-br from-ceera-orange to-ceera-brown rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
-                    </div>
-                    <h3 className="text-lg md:text-xl font-bold text-ceera-dark">{value.title}</h3>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Implantations Section */}
+      {/* Mission Section */}
       <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <MapPin className="w-12 h-12 mx-auto mb-4 text-ceera-orange" />
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos implantations</h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-ceera-orange to-ceera-brown rounded-full mx-auto"></div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card className="border-2 border-ceera-orange/20 hover:border-ceera-orange transition-colors">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-ceera-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <GraduationCap className="w-6 h-6 text-ceera-orange" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-ceera-dark">Siège principal</h3>
-                  <p className="text-sm text-muted-foreground">Abidjan</p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-ceera-orange/20 hover:border-ceera-orange transition-colors">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-ceera-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="w-6 h-6 text-ceera-orange" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-ceera-dark">Base actuelle</h3>
-                  <p className="text-sm text-muted-foreground">CEERA-Bouaké</p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-ceera-orange/20 hover:border-ceera-orange transition-colors">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-ceera-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Sparkles className="w-6 h-6 text-ceera-orange" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-ceera-dark">Expansion</h3>
-                  <p className="text-sm text-muted-foreground">Daloa, Yamoussoukro, Man, Korhogo...</p>
-                </CardContent>
-              </Card>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div>
+                <div className="mb-6">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-ceera-orange to-ceera-brown bg-clip-text text-transparent">
+                    Notre mission
+                  </h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-ceera-orange to-ceera-brown rounded-full"></div>
+                </div>
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                  Promouvoir la <span className="font-bold text-ceera-orange">solidarité</span>, 
+                  l'<span className="font-bold text-ceera-orange">excellence académique</span> et 
+                  le <span className="font-bold text-ceera-orange">développement</span> culturel et social 
+                  des élèves et étudiants ressortissants d'Agnibilékrou.
+                </p>
+              </div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-ceera-orange/20 to-ceera-brown/20 rounded-3xl blur-2xl"></div>
+                <img 
+                  src={getRandomImage(uploadedImages, 22)} 
+                  alt="Mission CEERA" 
+                  className="relative rounded-2xl shadow-2xl w-full h-64 md:h-80 object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
